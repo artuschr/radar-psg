@@ -60,7 +60,7 @@ header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:1
 
 nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:14px 10px;margin-bottom:6px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-nav.tabs button{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 10px;font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:14px;cursor:pointer;color:var(--muted)}
+nav.tabs button{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 4px;font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:14px;cursor:pointer;color:var(--muted)}
 nav.tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg)}
 
 section.view{display:flex;flex-direction:column;gap:14px}
@@ -122,6 +122,29 @@ section.view{display:flex;flex-direction:column;gap:14px}
 .chip button{border:0;background:var(--off-soft);border-radius:999px;width:22px;height:22px;cursor:pointer;line-height:1}
 .addrow{display:flex;gap:8px}
 .addrow input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg)}
+/* pronos */
+.path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.step{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:12px;background:var(--bg);border:1px solid var(--line);text-align:center}
+.step b{font-family:var(--display);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.step span{font-family:var(--cond);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.step.hi b{color:var(--red)}
+.round-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.kpis{display:flex;gap:8px;flex-wrap:wrap}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:minmax(0,9.5em) 1fr 3.2em;gap:8px;align-items:center;font-size:15px}
+.bar .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .n.big{font-weight:700}
+.bar .track{height:10px;border-radius:5px;background:var(--off-soft);overflow:hidden}
+.bar .fill{height:100%;border-radius:5px;background:var(--navy)}
+.bar .fill.big{background:var(--red)}
+.bar .v{font-family:var(--cond);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+table.std{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+table.std th{font-family:var(--cond);text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted);text-align:right;padding:6px 6px;border-bottom:1px solid var(--line)}
+table.std th:nth-child(2),table.std td:nth-child(2){text-align:left}
+table.std td{padding:6px;text-align:right;border-bottom:1px solid var(--line)}
+table.std tr.psg td{background:var(--red-soft);font-weight:700}
+table.std tr.cut td{border-bottom:2px solid var(--ink)}
 .foot{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
 @media (prefers-reduced-motion:no-preference){.dial circle.arc{transition:stroke-dashoffset .5s ease}}
 </style>
@@ -139,7 +162,8 @@ section.view{display:flex;flex-direction:column;gap:14px}
 
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-matchs" aria-selected="true" data-view="matchs">Matchs</button>
-    <button role="tab" id="tab-placement" aria-selected="false" data-view="placement">Où s'asseoir</button>
+    <button role="tab" id="tab-pronos" aria-selected="false" data-view="pronos">Pronos</button>
+    <button role="tab" id="tab-placement" aria-selected="false" data-view="placement">Places</button>
     <button role="tab" id="tab-criteres" aria-selected="false" data-view="criteres">Critères</button>
   </nav>
 
@@ -161,6 +185,23 @@ section.view{display:flex;flex-direction:column;gap:14px}
       <h3>Installer l'app sur l'écran d'accueil</h3>
       <p>Dans Safari, ouvre cette page, appuie sur <b>Partager</b> puis <b>Sur l'écran d'accueil</b>.</p>
     </div>
+  </section>
+
+  <!-- PRONOS -->
+  <section class="view" id="view-pronos" hidden>
+    <p class="lead">Jusqu'où ira le PSG, et contre qui jouera-t-il au Parc ? Les chances sont recalculées chaque matin en simulant la fin de la compétition des milliers de fois.</p>
+    <div class="panel">
+      <h2>Le chemin du PSG</h2>
+      <div class="path" id="path"></div>
+      <p class="note" id="pathnote"></p>
+    </div>
+    <div id="rounds" style="display:flex;flex-direction:column;gap:14px"></div>
+    <div class="panel">
+      <h2>Classement de la phase de ligue</h2>
+      <p class="note">Les 8 premiers vont directement en huitièmes. De la 9e à la 24e place : barrages. La colonne « Top 8 » donne la chance de finir dans les 8 premiers.</p>
+      <div class="tablewrap"><table class="std" id="std"></table></div>
+    </div>
+    <p class="note" id="method"></p>
   </section>
 
   <!-- PLACEMENT -->
@@ -219,6 +260,10 @@ section.view{display:flex;flex-direction:column;gap:14px}
       <label class="toggle"><input type="checkbox" id="hidelow"> Masquer les matchs sous le seuil</label>
     </div>
     <div class="panel">
+      <h2>Pronostics</h2>
+      <div class="field"><label for="pmin">Afficher un adversaire à partir de</label><output id="o-pmin"></output><input type="range" id="pmin" min="1" max="30" step="1"><small>En dessous de cette probabilité, l'adversaire est masqué dans les pronostics et sur les matchs.</small></div>
+    </div>
+    <div class="panel">
       <h2>Gros clubs</h2>
       <p class="note">Contre ces équipes, le critère « Adversaire » est au maximum.</p>
       <div class="chips" id="chips"></div>
@@ -236,7 +281,7 @@ section.view{display:flex;flex-direction:column;gap:14px}
 <script>
 (function(){
   const DEFAULTS = {
-    w:{opp:4,phase:3,stake:2,day:1}, thr:60, weeknights:true, hidelow:false,
+    w:{opp:4,phase:3,stake:2,day:1}, thr:60, pmin:5, weeknights:true, hidelow:false,
     big:["Real Madrid","FC Barcelone","Bayern Munich","Liverpool","Manchester City","Arsenal","Inter Milan","AC Milan","Juventus","Chelsea","Atlético de Madrid","Borussia Dortmund","Manchester United","Naples"]
   };
   const PHASE = {league:.3, playoff:.6, r16:.8, qf:.9, sf:1};
@@ -265,10 +310,19 @@ section.view{display:flex;flex-direction:column;gap:14px}
     const v = w.opp*rep + w.phase*(PHASE[m.phase]||.3) + w.stake*(m.stake||0) + w.day*dayValue(m.date);
     return Math.round(100*v/tot);
   }
+  function fround(m){ const f=DATA&&DATA.forecast; return f && f.psg && f.psg.rounds ? f.psg.rounds[m.phase] : null; }
   function matchScore(m){
     if(m.opponent) return {lo:score(m, isBig(m.opponent)?1:(m.rep||.4))};
+    const fr = fround(m);
+    if(fr && fr.opponents && fr.opponents.length){
+      let tot=0, acc=0;
+      fr.opponents.forEach(o=>{ tot+=o.p; acc+=o.p*score(m, isBig(o.name)?1:.5); });
+      if(tot>0) return {lo:Math.round(acc/tot), exp:true};
+    }
     return {lo:score(m,.4), hi:score(m,1)};
   }
+  const pct = x => (x>=.995 ? ">99" : x<.01 && x>0 ? "<1" : Math.round(x*100)) + " %";
+  function visibleOpps(fr){ return (fr && fr.opponents || []).filter(o=>o.p*100 >= S.pmin); }
 
   const fmtDate = iso => new Date(iso).toLocaleString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Paris"});
   const fmtShort = iso => new Date(iso).toLocaleString("fr-FR",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Paris"});
@@ -296,7 +350,45 @@ section.view{display:flex;flex-direction:column;gap:14px}
     return out.join("");
   }
 
+  function koLine(m){
+    if(m.opponent) return "";
+    const fr = fround(m); if(!fr) return "";
+    const v = visibleOpps(fr).slice(0,4);
+    const who = v.length ? v.map(o=>`${isBig(o.name)?"<b>"+o.name+"</b>":o.name} ${pct(o.p)}`).join(", ") : `aucun adversaire au-dessus de ${S.pmin} %`;
+    return `<p class="note">Chance que le PSG joue ce tour au Parc : <b>${pct(fr.p)}</b>. Adversaires probables : ${who}.</p>`;
+  }
+
+  const RLAB = {playoff:"Barrages", r16:"Huitièmes", qf:"Quarts", sf:"Demies"};
+  function renderPronos(){
+    const f = DATA && DATA.forecast; if(!f) return;
+    const P = f.psg, R = P.rounds;
+    const steps = [["Top 8",P.top8],["Huitièmes",R.r16.p],["Quarts",R.qf.p],["Demies",R.sf.p],["Finale",P.final]];
+    document.getElementById("path").innerHTML = steps.map(([l,v])=>`<div class="step ${v>=.5?"hi":""}"><b>${pct(v).replace(" %","")}<small style="font-size:14px">%</small></b><span>${l}</span></div>`).join("");
+    document.getElementById("pathnote").textContent = P.barrages>=.01 ? `Chance de passer par les barrages (9e à 24e place) : ${pct(P.barrages)}. La finale se joue à Madrid, pas au Parc.` : "La finale se joue à Madrid, pas au Parc.";
+    const win = {}; (DATA.matches||[]).forEach(m=>{ if(!m.opponent) win[m.phase]=m.window; });
+    let html="";
+    ["playoff","r16","qf","sf"].forEach(k=>{
+      const fr=R[k]; if(!fr || fr.p<.01) return;
+      const all=fr.opponents||[], v=visibleOpps(fr), hidden=all.length-v.length;
+      const pbig = all.reduce((a,o)=>a+(isBig(o.name)?o.p:0),0);
+      const max = Math.max(...v.map(o=>o.p), .01);
+      html += `<div class="panel">
+        <div class="round-head"><h2>${RLAB[k]}</h2><span class="when">${win[k]||""}</span></div>
+        <div class="kpis"><span class="pill ${fr.p>=.5?"ok":"off"}">PSG au Parc : ${pct(fr.p)}</span><span class="pill ${pbig>=.5?"red":"warn"}">Gros club : ${pct(pbig)}</span>${fr.known?`<span class="pill red">Tiré : ${fr.known}</span>`:""}</div>
+        <p class="note">${fr.known ? "Adversaire connu." : "Si le PSG joue ce tour, voici ses adversaires les plus probables :"}</p>
+        <div class="bars">${v.map(o=>{const b=isBig(o.name);return `<div class="bar"><span class="n ${b?"big":""}">${o.name}</span><span class="track"><span class="fill ${b?"big":""}" style="display:block;width:${Math.round(100*o.p/max)}%"></span></span><span class="v">${pct(o.p)}</span></div>`;}).join("") || `<p class="note">Aucun adversaire au-dessus de ${S.pmin} % pour l'instant : tout reste ouvert.</p>`}</div>
+        ${hidden>0?`<p class="note">${hidden} autre${hidden>1?"s":""} sous ${S.pmin} % masqué${hidden>1?"s":""} (seuil réglable dans Critères).</p>`:""}
+      </div>`;
+    });
+    document.getElementById("rounds").innerHTML = html;
+    const rows = f.table.map((t,i)=>`<tr class="${t.name==="PSG"?"psg":""} ${i===7||i===23?"cut":""}"><td>${i+1}</td><td>${isBig(t.name)?"<b>"+t.name+"</b>":t.name}</td><td>${t.played}</td><td>${t.pts}</td><td>${t.gd>0?"+":""}${t.gd}</td><td>${pct(t.p_top8)}</td></tr>`).join("");
+    document.getElementById("std").innerHTML = `<thead><tr><th>#</th><th>Équipe</th><th>J</th><th>Pts</th><th>Diff</th><th>Top 8</th></tr></thead><tbody>${rows}</tbody>`;
+    const d = f.standings_date ? new Date(f.standings_date).toLocaleDateString("fr-FR",{day:"numeric",month:"long"}) : "";
+    document.getElementById("method").textContent = `Méthode : ${f.sims.toLocaleString("fr-FR")} simulations de la fin de la phase de ligue et du tableau final, à partir du classement${d?" du "+d:""} et de la force estimée de chaque équipe. Ce sont des probabilités, pas des certitudes.`;
+  }
+
   function render(){
+    renderPronos();
     if(!DATA) return;
     const list = document.getElementById("list");
     const now = Date.now();
@@ -315,13 +407,14 @@ section.view{display:flex;flex-direction:column;gap:14px}
       if(alertAt) acts += `<a class="btn" href="${gcal("🎟️ Vente billets "+label, alertAt, 30, "La vente ouvre maintenant.", m.buy_url)}" target="_blank" rel="noopener">Alerte vente (Google Agenda)</a>`;
       else if(m.check_date) acts += `<a class="btn" href="${gcal("🔎 Vérifier les billets "+label, m.check_date, 15, "Date d'ouverture pas encore connue.", m.buy_url)}" target="_blank" rel="noopener">Rappel (Google Agenda)</a>`;
       html += `<article class="match ${hot?"hot":""} ${top < S.thr-20 ? "dim":""}">
-        <div class="dial">${dial(sc, hot)}<span class="lab">${hot?"À ne pas rater":"Note /100"}</span></div>
+        <div class="dial">${dial(sc, hot)}<span class="lab">${hot?"À ne pas rater":sc.exp?"Note attendue":"Note /100"}</span></div>
         <div class="body">
           <span class="round">${m.round}</span>
           <h2 class="title">${name}</h2>
           <span class="when">${when}</span>
           <div class="pills">${salePills(m)}</div>
           <p class="note">${[m.stake_note, s.note].filter(Boolean).join(" ")}</p>
+          ${koLine(m)}
           <div class="actions">${acts}</div>
         </div></article>`;
     });
@@ -334,12 +427,14 @@ section.view{display:flex;flex-direction:column;gap:14px}
   function syncSettings(){
     for(const k in ids){ const el=document.getElementById(ids[k]); el.value=S.w[k]; document.getElementById("o-"+k).textContent=S.w[k]; }
     document.getElementById("thr").value=S.thr; document.getElementById("o-thr").textContent=S.thr;
+    document.getElementById("pmin").value=S.pmin; document.getElementById("o-pmin").textContent=S.pmin+" %";
     document.getElementById("weeknights").checked=S.weeknights;
     document.getElementById("hidelow").checked=S.hidelow;
     document.getElementById("chips").innerHTML = S.big.map((b,i)=>`<span class="chip">${b.replace(/</g,"&lt;")}<button type="button" data-i="${i}" aria-label="Retirer ${b.replace(/"/g,"")}">×</button></span>`).join("");
   }
   for(const k in ids) document.getElementById(ids[k]).addEventListener("input", e=>{ S.w[k]=+e.target.value; document.getElementById("o-"+k).textContent=S.w[k]; save(); render(); });
   document.getElementById("thr").addEventListener("input", e=>{ S.thr=+e.target.value; document.getElementById("o-thr").textContent=S.thr; save(); render(); });
+  document.getElementById("pmin").addEventListener("input", e=>{ S.pmin=+e.target.value; document.getElementById("o-pmin").textContent=S.pmin+" %"; save(); render(); });
   document.getElementById("weeknights").addEventListener("change", e=>{ S.weeknights=e.target.checked; save(); render(); });
   document.getElementById("hidelow").addEventListener("change", e=>{ S.hidelow=e.target.checked; save(); render(); });
   document.getElementById("chips").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; S.big.splice(+b.dataset.i,1); save(); syncSettings(); render(); });
@@ -347,7 +442,7 @@ section.view{display:flex;flex-direction:column;gap:14px}
   document.getElementById("reset").addEventListener("click", ()=>{ S=clone(DEFAULTS); save(); syncSettings(); render(); });
 
   // tabs
-  const views = ["matchs","placement","criteres"];
+  const views = ["matchs","pronos","placement","criteres"];
   function show(v){
     if(!views.includes(v)) v="matchs";
     views.forEach(x=>{ document.getElementById("view-"+x).hidden = x!==v; document.getElementById("tab-"+x).setAttribute("aria-selected", x===v); });
