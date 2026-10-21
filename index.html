@@ -39,6 +39,7 @@
   color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
@@ -240,11 +241,12 @@ section.view{display:flex;flex-direction:column;gap:14px}
   };
   const PHASE = {league:.3, playoff:.6, r16:.8, qf:.9, sf:1};
   const KEY = "radar-psg-reglages";
+  const clone = o => JSON.parse(JSON.stringify(o));
   let S = load(), DATA = null;
 
   function load(){
-    try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && s.w) return Object.assign(structuredClone(DEFAULTS), s); }catch(e){}
-    return structuredClone(DEFAULTS);
+    try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && s.w) return Object.assign(clone(DEFAULTS), s); }catch(e){}
+    return clone(DEFAULTS);
   }
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
@@ -342,7 +344,7 @@ section.view{display:flex;flex-direction:column;gap:14px}
   document.getElementById("hidelow").addEventListener("change", e=>{ S.hidelow=e.target.checked; save(); render(); });
   document.getElementById("chips").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; S.big.splice(+b.dataset.i,1); save(); syncSettings(); render(); });
   document.getElementById("addform").addEventListener("submit", e=>{ e.preventDefault(); const v=document.getElementById("addclub").value.trim(); if(v && !S.big.some(b=>norm(b)===norm(v))){ S.big.push(v); save(); syncSettings(); render(); } document.getElementById("addclub").value=""; });
-  document.getElementById("reset").addEventListener("click", ()=>{ S=structuredClone(DEFAULTS); save(); syncSettings(); render(); });
+  document.getElementById("reset").addEventListener("click", ()=>{ S=clone(DEFAULTS); save(); syncSettings(); render(); });
 
   // tabs
   const views = ["matchs","placement","criteres"];
