@@ -3,49 +3,321 @@
   "standings_date": "2026-10-20",
   "league_avg_rating": 1800,
   "psg_remaining": [
-    {"opp": "Villarreal", "home": false},
-    {"opp": "AS Roma", "home": true},
-    {"opp": "Aston Villa", "home": false},
-    {"opp": "Côme", "home": false},
-    {"opp": "Galatasaray", "home": true}
+    {
+      "opp": "Villarreal",
+      "home": false,
+      "date": "2026-11-03"
+    },
+    {
+      "opp": "AS Roma",
+      "home": true,
+      "date": "2026-11-25"
+    },
+    {
+      "opp": "Aston Villa",
+      "home": false,
+      "date": "2026-12-08"
+    },
+    {
+      "opp": "Côme",
+      "home": false,
+      "date": "2027-01-20"
+    },
+    {
+      "opp": "Galatasaray",
+      "home": true,
+      "date": "2027-01-27"
+    }
   ],
   "teams": [
-    {"name": "PSG", "played": 3, "pts": 9, "gd": 9, "rating": 2000, "big": true},
-    {"name": "Liverpool", "played": 3, "pts": 9, "gd": 5, "rating": 1960, "big": true},
-    {"name": "Stuttgart", "played": 3, "pts": 7, "gd": 5, "rating": 1810, "big": false},
-    {"name": "Aston Villa", "played": 2, "pts": 6, "gd": 7, "rating": 1840, "big": false},
-    {"name": "FC Barcelone", "played": 3, "pts": 6, "gd": 5, "rating": 1960, "big": true},
-    {"name": "Manchester City", "played": 3, "pts": 6, "gd": 4, "rating": 1940, "big": true},
-    {"name": "Sporting", "played": 2, "pts": 6, "gd": 4, "rating": 1820, "big": false},
-    {"name": "Arsenal", "played": 2, "pts": 6, "gd": 4, "rating": 1980, "big": true},
-    {"name": "Real Madrid", "played": 2, "pts": 6, "gd": 2, "rating": 1950, "big": true},
-    {"name": "Betis Séville", "played": 2, "pts": 6, "gd": 2, "rating": 1780, "big": false},
-    {"name": "Borussia Dortmund", "played": 3, "pts": 6, "gd": 1, "rating": 1830, "big": true},
-    {"name": "Bayern Munich", "played": 2, "pts": 4, "gd": 5, "rating": 1960, "big": true},
-    {"name": "AS Roma", "played": 3, "pts": 4, "gd": 3, "rating": 1790, "big": false},
-    {"name": "Shakhtar Donetsk", "played": 2, "pts": 4, "gd": 2, "rating": 1700, "big": false},
-    {"name": "Atlético de Madrid", "played": 3, "pts": 4, "gd": 1, "rating": 1880, "big": true},
-    {"name": "PSV Eindhoven", "played": 3, "pts": 4, "gd": 0, "rating": 1800, "big": false},
-    {"name": "Côme", "played": 2, "pts": 3, "gd": 2, "rating": 1760, "big": false},
-    {"name": "Manchester United", "played": 2, "pts": 3, "gd": 2, "rating": 1820, "big": true},
-    {"name": "Villarreal", "played": 3, "pts": 3, "gd": 0, "rating": 1800, "big": false},
-    {"name": "Club Bruges", "played": 2, "pts": 3, "gd": 0, "rating": 1760, "big": false},
-    {"name": "RC Lens", "played": 2, "pts": 3, "gd": -1, "rating": 1770, "big": false},
-    {"name": "Naples", "played": 3, "pts": 3, "gd": -2, "rating": 1850, "big": true},
-    {"name": "RB Leipzig", "played": 2, "pts": 3, "gd": -2, "rating": 1800, "big": false},
-    {"name": "Feyenoord", "played": 2, "pts": 3, "gd": -3, "rating": 1750, "big": false},
-    {"name": "Sabah", "played": 3, "pts": 3, "gd": -3, "rating": 1550, "big": false},
-    {"name": "Bodø/Glimt", "played": 3, "pts": 3, "gd": -5, "rating": 1720, "big": false},
-    {"name": "AEK Athènes", "played": 3, "pts": 3, "gd": -5, "rating": 1680, "big": false},
-    {"name": "Fenerbahçe", "played": 3, "pts": 2, "gd": -6, "rating": 1760, "big": false},
-    {"name": "Viking", "played": 2, "pts": 1, "gd": -2, "rating": 1580, "big": false},
-    {"name": "Slavia Prague", "played": 3, "pts": 1, "gd": -4, "rating": 1700, "big": false},
-    {"name": "Inter Milan", "played": 2, "pts": 0, "gd": -2, "rating": 1920, "big": true},
-    {"name": "LASK Linz", "played": 2, "pts": 0, "gd": -4, "rating": 1620, "big": false},
-    {"name": "FC Porto", "played": 2, "pts": 0, "gd": -4, "rating": 1800, "big": false},
-    {"name": "Lille", "played": 2, "pts": 0, "gd": -4, "rating": 1790, "big": false},
-    {"name": "Galatasaray", "played": 3, "pts": 0, "gd": -5, "rating": 1770, "big": false},
-    {"name": "Slovan Bratislava", "played": 3, "pts": 0, "gd": -12, "rating": 1560, "big": false}
+    {
+      "name": "PSG",
+      "played": 3,
+      "pts": 9,
+      "gd": 9,
+      "rating": 2000,
+      "big": true
+    },
+    {
+      "name": "Liverpool",
+      "played": 3,
+      "pts": 9,
+      "gd": 5,
+      "rating": 1960,
+      "big": true
+    },
+    {
+      "name": "Stuttgart",
+      "played": 3,
+      "pts": 7,
+      "gd": 5,
+      "rating": 1810,
+      "big": false
+    },
+    {
+      "name": "Aston Villa",
+      "played": 2,
+      "pts": 6,
+      "gd": 7,
+      "rating": 1840,
+      "big": false
+    },
+    {
+      "name": "FC Barcelone",
+      "played": 3,
+      "pts": 6,
+      "gd": 5,
+      "rating": 1960,
+      "big": true
+    },
+    {
+      "name": "Manchester City",
+      "played": 3,
+      "pts": 6,
+      "gd": 4,
+      "rating": 1940,
+      "big": true
+    },
+    {
+      "name": "Sporting",
+      "played": 2,
+      "pts": 6,
+      "gd": 4,
+      "rating": 1820,
+      "big": false
+    },
+    {
+      "name": "Arsenal",
+      "played": 2,
+      "pts": 6,
+      "gd": 4,
+      "rating": 1980,
+      "big": true
+    },
+    {
+      "name": "Real Madrid",
+      "played": 2,
+      "pts": 6,
+      "gd": 2,
+      "rating": 1950,
+      "big": true
+    },
+    {
+      "name": "Betis Séville",
+      "played": 2,
+      "pts": 6,
+      "gd": 2,
+      "rating": 1780,
+      "big": false
+    },
+    {
+      "name": "Borussia Dortmund",
+      "played": 3,
+      "pts": 6,
+      "gd": 1,
+      "rating": 1830,
+      "big": true
+    },
+    {
+      "name": "Bayern Munich",
+      "played": 2,
+      "pts": 4,
+      "gd": 5,
+      "rating": 1960,
+      "big": true
+    },
+    {
+      "name": "AS Roma",
+      "played": 3,
+      "pts": 4,
+      "gd": 3,
+      "rating": 1790,
+      "big": false
+    },
+    {
+      "name": "Shakhtar Donetsk",
+      "played": 2,
+      "pts": 4,
+      "gd": 2,
+      "rating": 1700,
+      "big": false
+    },
+    {
+      "name": "Atlético de Madrid",
+      "played": 3,
+      "pts": 4,
+      "gd": 1,
+      "rating": 1880,
+      "big": true
+    },
+    {
+      "name": "PSV Eindhoven",
+      "played": 3,
+      "pts": 4,
+      "gd": 0,
+      "rating": 1800,
+      "big": false
+    },
+    {
+      "name": "Côme",
+      "played": 2,
+      "pts": 3,
+      "gd": 2,
+      "rating": 1760,
+      "big": false
+    },
+    {
+      "name": "Manchester United",
+      "played": 2,
+      "pts": 3,
+      "gd": 2,
+      "rating": 1820,
+      "big": true
+    },
+    {
+      "name": "Villarreal",
+      "played": 3,
+      "pts": 3,
+      "gd": 0,
+      "rating": 1800,
+      "big": false
+    },
+    {
+      "name": "Club Bruges",
+      "played": 2,
+      "pts": 3,
+      "gd": 0,
+      "rating": 1760,
+      "big": false
+    },
+    {
+      "name": "RC Lens",
+      "played": 2,
+      "pts": 3,
+      "gd": -1,
+      "rating": 1770,
+      "big": false
+    },
+    {
+      "name": "Naples",
+      "played": 3,
+      "pts": 3,
+      "gd": -2,
+      "rating": 1850,
+      "big": true
+    },
+    {
+      "name": "RB Leipzig",
+      "played": 2,
+      "pts": 3,
+      "gd": -2,
+      "rating": 1800,
+      "big": false
+    },
+    {
+      "name": "Feyenoord",
+      "played": 2,
+      "pts": 3,
+      "gd": -3,
+      "rating": 1750,
+      "big": false
+    },
+    {
+      "name": "Sabah",
+      "played": 3,
+      "pts": 3,
+      "gd": -3,
+      "rating": 1550,
+      "big": false
+    },
+    {
+      "name": "Bodø/Glimt",
+      "played": 3,
+      "pts": 3,
+      "gd": -5,
+      "rating": 1720,
+      "big": false
+    },
+    {
+      "name": "AEK Athènes",
+      "played": 3,
+      "pts": 3,
+      "gd": -5,
+      "rating": 1680,
+      "big": false
+    },
+    {
+      "name": "Fenerbahçe",
+      "played": 3,
+      "pts": 2,
+      "gd": -6,
+      "rating": 1760,
+      "big": false
+    },
+    {
+      "name": "Viking",
+      "played": 2,
+      "pts": 1,
+      "gd": -2,
+      "rating": 1580,
+      "big": false
+    },
+    {
+      "name": "Slavia Prague",
+      "played": 3,
+      "pts": 1,
+      "gd": -4,
+      "rating": 1700,
+      "big": false
+    },
+    {
+      "name": "Inter Milan",
+      "played": 2,
+      "pts": 0,
+      "gd": -2,
+      "rating": 1920,
+      "big": true
+    },
+    {
+      "name": "LASK Linz",
+      "played": 2,
+      "pts": 0,
+      "gd": -4,
+      "rating": 1620,
+      "big": false
+    },
+    {
+      "name": "FC Porto",
+      "played": 2,
+      "pts": 0,
+      "gd": -4,
+      "rating": 1800,
+      "big": false
+    },
+    {
+      "name": "Lille",
+      "played": 2,
+      "pts": 0,
+      "gd": -4,
+      "rating": 1790,
+      "big": false
+    },
+    {
+      "name": "Galatasaray",
+      "played": 3,
+      "pts": 0,
+      "gd": -5,
+      "rating": 1770,
+      "big": false
+    },
+    {
+      "name": "Slovan Bratislava",
+      "played": 3,
+      "pts": 0,
+      "gd": -12,
+      "rating": 1560,
+      "big": false
+    }
   ],
   "draws": {
     "_note": "À remplir après chaque tirage. playoff/r16/qf/sf : adversaire réel du PSG (null tant que pas tiré). eliminated : true si le PSG est éliminé.",
@@ -54,5 +326,69 @@
     "qf": null,
     "sf": null,
     "eliminated": false
-  }
+  },
+  "matchday_dates": [
+    "2026-09-09",
+    "2026-10-14",
+    "2026-10-21",
+    "2026-11-03",
+    "2026-11-25",
+    "2026-12-08",
+    "2027-01-20",
+    "2027-01-27"
+  ],
+  "round_dates": {
+    "playoff": "2027-02-16",
+    "r16": "2027-03-09",
+    "qf": "2027-04-06",
+    "sf": "2027-04-27"
+  },
+  "_absences_note": "Joueurs absents. impact = baisse de la force de l'équipe (échelle Elo) tant que le joueur est absent : star mondiale 30-40, titulaire clé 15-25, titulaire 8-12. until = date de retour estimée ; estimated=true si la durée n'est pas confirmée officiellement.",
+  "absences": [
+    {
+      "team": "PSG",
+      "player": "Ousmane Dembélé",
+      "injury": "Cuisse gauche (sorti à la 19e contre le Barça)",
+      "since": "2026-10-20",
+      "until": "2026-11-17",
+      "estimated": true,
+      "impact": 35
+    },
+    {
+      "team": "PSG",
+      "player": "Khvicha Kvaratskhelia",
+      "injury": "Genou droit (sorti à la 58e contre le Barça)",
+      "since": "2026-10-20",
+      "until": "2026-11-24",
+      "estimated": true,
+      "impact": 25
+    },
+    {
+      "team": "PSG",
+      "player": "Marquinhos",
+      "injury": "Sorti par précaution à la 58e contre le Barça",
+      "since": "2026-10-20",
+      "until": "2026-11-02",
+      "estimated": true,
+      "impact": 12
+    },
+    {
+      "team": "PSG",
+      "player": "Nuno Mendes",
+      "injury": "Déjà forfait avant le Barça",
+      "since": "2026-10-20",
+      "until": "2026-11-02",
+      "estimated": true,
+      "impact": 15
+    },
+    {
+      "team": "FC Barcelone",
+      "player": "Dani Olmo",
+      "injury": "Sorti vers la 20e contre le PSG",
+      "since": "2026-10-20",
+      "until": "2026-11-10",
+      "estimated": true,
+      "impact": 12
+    }
+  ]
 }

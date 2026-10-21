@@ -122,11 +122,29 @@ section.view{display:flex;flex-direction:column;gap:14px}
 .chip button{border:0;background:var(--off-soft);border-radius:999px;width:22px;height:22px;cursor:pointer;line-height:1}
 .addrow{display:flex;gap:8px}
 .addrow input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg)}
+/* disponibilité */
+.avail{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--off-soft)}
+.avail .dot{width:12px;height:12px;border-radius:50%;background:var(--off);grid-row:span 2}
+.avail strong{font-family:var(--cond);font-size:17px;text-transform:uppercase;letter-spacing:.04em;line-height:1.1}
+.avail small{color:var(--muted);font-size:13px}
+.avail.ok{background:var(--ok-soft)} .avail.ok .dot{background:var(--ok)} .avail.ok strong{color:var(--ok)}
+.avail.warn{background:var(--warn-soft)} .avail.warn .dot{background:var(--warn)} .avail.warn strong{color:var(--warn)}
+.avail.red{background:var(--red-soft)} .avail.red .dot{background:var(--red)} .avail.red strong{color:var(--red)}
+.avail.off strong{color:var(--off)}
+.legend-av{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted)}
+.legend-av span{display:inline-flex;align-items:center;gap:5px}
+.legend-av i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.inj{display:flex;flex-direction:column;gap:8px}
+.inj div{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.inj div:last-child{border-bottom:0;padding-bottom:0}
+.inj b{font-weight:600}
+.inj small{grid-column:1/-1;color:var(--muted)}
+.inj .ret{font-family:var(--cond);font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
 /* pronos */
 .path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .step{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:12px;background:var(--bg);border:1px solid var(--line);text-align:center}
 .step b{font-family:var(--display);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
-.step span{font-family:var(--cond);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.step span{font-family:var(--cond);font-size:11px;text-transform:uppercase;letter-spacing:.02em;color:var(--muted)}
 .step.hi b{color:var(--red)}
 .round-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
 .kpis{display:flex;gap:8px;flex-wrap:wrap}
@@ -170,6 +188,7 @@ table.std tr.cut td{border-bottom:2px solid var(--ink)}
   <!-- MATCHS -->
   <section class="view" id="view-matchs">
     <p class="lead">Chaque match au Parc reçoit une note sur 100 selon tes critères. Au-dessus de ton seuil, il passe en rouge : c'est celui à ne pas rater.</p>
+    <div class="legend-av"><span><i style="background:var(--ok)"></i>Places dispo</span><span><i style="background:var(--warn)"></i>Dernières places / revente</span><span><i style="background:var(--red)"></i>Complet</span><span><i style="background:var(--off)"></i>Pas encore en vente</span></div>
     <div id="list"></div>
 
     <div class="panel" id="alerts">
@@ -194,6 +213,11 @@ table.std tr.cut td{border-bottom:2px solid var(--ink)}
       <h2>Le chemin du PSG</h2>
       <div class="path" id="path"></div>
       <p class="note" id="pathnote"></p>
+    </div>
+    <div class="panel" id="injpanel" hidden>
+      <h2>Infirmerie</h2>
+      <p class="note">Les absences sont prises en compte dans les pronostics : tant qu'un joueur est blessé, la force de son équipe baisse pour les matchs concernés.</p>
+      <div class="inj" id="inj"></div>
     </div>
     <div id="rounds" style="display:flex;flex-direction:column;gap:14px"></div>
     <div class="panel">
@@ -341,6 +365,26 @@ table.std tr.cut td{border-bottom:2px solid var(--ink)}
     return `<svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="${r}" fill="none" stroke="var(--line)" stroke-width="6"/><circle class="arc" cx="36" cy="36" r="${r}" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 36 36)"/>${txt}</svg>`;
   }
 
+  function availBlock(m){
+    const s = m.sale||{}, av = s.availability||"unknown";
+    let cls="off", label="Pas encore en vente", sub = s.note||"";
+    const next = s.members_open || s.public_open;
+    if(s.status==="tbd"){ label="Selon le tirage"; }
+    else if(s.status==="announce"){ label="Pas encore en vente"; sub = "Date d'ouverture pas encore annoncée."; }
+    else if(s.status==="upcoming"){ cls="warn"; label="Vente bientôt"; sub = next ? "Ouverture : "+fmtShort(next) : sub; }
+    else if(s.status==="soldout" || av==="soldout"){ cls="red"; label="Complet"; sub="Plus de places en vente officielle. Seule la revente officielle peut en remettre."; }
+    else if(s.status==="resale" || av==="resale"){ cls="warn"; label="Revente uniquement"; sub="Places remises en vente par des abonnés, au prix officiel."; }
+    else if(av==="low"){ cls="warn"; label="Dernières places"; sub="Il reste peu de places : fonce."; }
+    else if(av==="available"){ cls="ok"; label="Places disponibles"; sub = s.status==="members" ? "Vente réservée aux membres MyParis." : "Vente ouverte à tous."; }
+    else if(s.status==="members" || s.status==="public"){ cls="ok"; label = s.status==="members"?"Vente membres ouverte":"Vente ouverte"; sub="Disponibilité exacte non vérifiée : regarde vite."; }
+    const chk = s.checked ? ` · vérifié le ${new Date(s.checked).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})}` : "";
+    return `<div class="avail ${cls}"><span class="dot"></span><strong>${label}</strong><small>${sub}${chk}</small></div>`;
+  }
+  function absentsAt(date){
+    const f = DATA && DATA.forecast; if(!f || !f.absences || !date) return [];
+    const d = date.slice(0,10);
+    return f.absences.filter(a=>a.team==="PSG" && a.since<=d && d<(a.until||"9999"));
+  }
   function salePills(m){
     const s = m.sale||{}, out=[];
     const map = {announce:["Vente pas encore annoncée","off"], members:["Vente membres ouverte","ok"], public:["Vente grand public ouverte","ok"], soldout:["Complet","red"], resale:["Revente officielle","warn"], tbd:["Selon le tirage","off"], upcoming:["Ouverture annoncée","warn"]};
@@ -362,6 +406,9 @@ table.std tr.cut td{border-bottom:2px solid var(--ink)}
   function renderPronos(){
     const f = DATA && DATA.forecast; if(!f) return;
     const P = f.psg, R = P.rounds;
+    const inj = f.absences||[];
+    document.getElementById("injpanel").hidden = !inj.length;
+    document.getElementById("inj").innerHTML = inj.map(a=>`<div><b>${a.player} <span style="color:var(--muted);font-weight:400">· ${a.team}</span></b><span class="ret">${a.until?(a.estimated?"retour ~":"retour ")+new Date(a.until).toLocaleDateString("fr-FR",{day:"numeric",month:"short"}):"durée inconnue"}</span><small>${a.injury||""}${a.estimated?" · durée estimée, en attente des examens":""}</small></div>`).join("");
     const steps = [["Top 8",P.top8],["Huitièmes",R.r16.p],["Quarts",R.qf.p],["Demies",R.sf.p],["Finale",P.final]];
     document.getElementById("path").innerHTML = steps.map(([l,v])=>`<div class="step ${v>=.5?"hi":""}"><b>${pct(v).replace(" %","")}<small style="font-size:14px">%</small></b><span>${l}</span></div>`).join("");
     document.getElementById("pathnote").textContent = P.barrages>=.01 ? `Chance de passer par les barrages (9e à 24e place) : ${pct(P.barrages)}. La finale se joue à Madrid, pas au Parc.` : "La finale se joue à Madrid, pas au Parc.";
@@ -393,7 +440,8 @@ table.std tr.cut td{border-bottom:2px solid var(--ink)}
     const list = document.getElementById("list");
     const now = Date.now();
     const rows = DATA.matches.filter(m => !m.date || new Date(m.date).getTime() > now).map(m => {
-      const sc = matchScore(m), top = sc.hi!=null ? sc.hi : sc.lo, hot = top >= S.thr;
+      const sc = matchScore(m), top = sc.hi!=null ? sc.hi : sc.lo, fr = m.opponent ? null : fround(m);
+      const hot = top >= S.thr && (!fr || fr.p >= .25);
       return {m, sc, hot, top};
     });
     let html = "";
@@ -402,18 +450,23 @@ table.std tr.cut td{border-bottom:2px solid var(--ink)}
       const name = m.opponent ? `PSG <span class="vs">–</span> ${m.opponent}` : `PSG <span class="vs">–</span> ?`;
       const when = m.date ? fmtDate(m.date) : `Au Parc : ${m.window}`;
       const s = m.sale||{}, label = m.opponent ? "PSG – "+m.opponent : m.round;
-      let acts = `<a class="btn primary" href="${m.buy_url}" target="_blank" rel="noopener">Acheter</a>`;
+      const soldout = s.status==="soldout" || s.availability==="soldout";
+      const onsale = ["members","public","resale"].includes(s.status) && !soldout;
+      let acts = soldout ? `<a class="btn" href="${m.buy_url}" target="_blank" rel="noopener">Voir la revente officielle</a>`
+        : onsale ? `<a class="btn primary" href="${m.buy_url}" target="_blank" rel="noopener">Acheter maintenant</a>`
+        : `<a class="btn" href="${m.buy_url}" target="_blank" rel="noopener">Billetterie</a>`;
       const alertAt = s.members_open || s.public_open;
       if(alertAt) acts += `<a class="btn" href="${gcal("🎟️ Vente billets "+label, alertAt, 30, "La vente ouvre maintenant.", m.buy_url)}" target="_blank" rel="noopener">Alerte vente (Google Agenda)</a>`;
       else if(m.check_date) acts += `<a class="btn" href="${gcal("🔎 Vérifier les billets "+label, m.check_date, 15, "Date d'ouverture pas encore connue.", m.buy_url)}" target="_blank" rel="noopener">Rappel (Google Agenda)</a>`;
-      html += `<article class="match ${hot?"hot":""} ${top < S.thr-20 ? "dim":""}">
+      html += `<article class="match ${hot?"hot":""} ${(top < S.thr-20 || (fr && fr.p < .25)) ? "dim":""}">
         <div class="dial">${dial(sc, hot)}<span class="lab">${hot?"À ne pas rater":sc.exp?"Note attendue":"Note /100"}</span></div>
         <div class="body">
           <span class="round">${m.round}</span>
           <h2 class="title">${name}</h2>
           <span class="when">${when}</span>
-          <div class="pills">${salePills(m)}</div>
-          <p class="note">${[m.stake_note, s.note].filter(Boolean).join(" ")}</p>
+          ${availBlock(m)}
+          ${(()=>{const a=absentsAt(m.date); return a.length?`<p class="note">Absents probables côté PSG : ${a.map(x=>"<b>"+x.player+"</b>").join(", ")}.</p>`:"";})()}
+          <p class="note">${m.stake_note||""}</p>
           ${koLine(m)}
           <div class="actions">${acts}</div>
         </div></article>`;

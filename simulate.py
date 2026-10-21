@@ -21,6 +21,18 @@ draws = T.get("draws", {})
 OUT = set(draws.get("eliminated_teams", []))  # équipes réellement éliminées en phase finale
 PSG = "PSG"
 HOME_ADV = 60
+ABS = T.get("absences", [])
+MD = T.get("matchday_dates", [])
+RD = T.get("round_dates", {})
+
+
+def eff(name, date):
+    """Force de l'équipe à une date, en retirant les joueurs absents ce jour-là."""
+    r = R.get(name, AVG)
+    for a in ABS:
+        if a["team"] == name and a.get("since", "") <= date < (a.get("until") or "9999"):
+            r -= a.get("impact", 0)
+    return r
 
 
 def expect(a, b):
@@ -40,13 +52,14 @@ def play(ra, rb):
     return 0, -random.choice((1, 1, 1, 2, 2, 3))
 
 
-def tie(a, b):
+def tie(a, b, rnd):
     """Double confrontation : renvoie le qualifié."""
     if a in OUT:
         return b
     if b in OUT:
         return a
-    p = 1 / (1 + 10 ** (-(R[a] - R[b]) * 1.15 / 400))
+    d = RD.get(rnd, "2027-03-01")
+    p = 1 / (1 + 10 ** (-(eff(a, d) - eff(b, d)) * 1.15 / 400))
     return a if random.random() < p else b
 
 
@@ -57,12 +70,13 @@ def league():
         left = 8 - t["played"]
         if t["name"] == PSG and left == len(T.get("psg_remaining", [])):
             for f in T["psg_remaining"]:
-                ra = R[PSG] + (HOME_ADV if f["home"] else -HOME_ADV)
-                p, g = play(ra, R.get(f["opp"], AVG))
+                d = f.get("date", "2026-12-01")
+                ra = eff(PSG, d) + (HOME_ADV if f["home"] else -HOME_ADV)
+                p, g = play(ra, eff(f["opp"], d))
                 pts, gd = pts + p, gd + g
         else:
-            for _ in range(left):
-                p, g = play(t["rating"], AVG)
+            for d in (MD[-left:] if left and len(MD) >= left else ["2026-12-01"] * left):
+                p, g = play(eff(t["name"], d), AVG)
                 pts, gd = pts + p, gd + g
         table.append((pts, gd, random.random(), t["name"]))
     table.sort(reverse=True)
@@ -125,7 +139,7 @@ for _ in range(N):
     for (s1, s2), (u1, u2) in (((9, 10), (23, 24)), ((11, 12), (21, 22)), ((13, 14), (19, 20)), ((15, 16), (17, 18))):
         pairs = pick((P(s1), P(s2)), (P(u1), P(u2)))
         pairs = force(pairs, draws.get("playoff"))
-        po_groups[(s1, s2)] = [tie(a, b) for a, b in pairs]
+        po_groups[(s1, s2)] = [tie(a, b, "playoff") for a, b in pairs]
         for a, b in pairs:
             if PSG in (a, b):
                 reach["playoff"] += 1
@@ -154,20 +168,20 @@ for _ in range(N):
         halves[1].append(ties[1])
     finalists = []
     for h in halves:
-        w = [tie(a, b) for a, b in h]  # [1|2, 7|8, 3|4, 5|6]
+        w = [tie(a, b, "r16") for a, b in h]  # [1|2, 7|8, 3|4, 5|6]
         qf = [(w[0], w[1]), (w[2], w[3])]
         qf = force(qf, draws.get("qf"))
         for a, b in qf:
             if PSG in (a, b):
                 reach["qf"] += 1
                 opp["qf"][b if a == PSG else a] += 1
-        sfp = [(tie(*qf[0]), tie(*qf[1]))]
+        sfp = [(tie(*qf[0], "qf"), tie(*qf[1], "qf"))]
         sfp = force(sfp, draws.get("sf"))
         for a, b in sfp:
             if PSG in (a, b):
                 reach["sf"] += 1
                 opp["sf"][b if a == PSG else a] += 1
-        finalists.append(tie(*sfp[0]))
+        finalists.append(tie(*sfp[0], "sf"))
     if PSG in finalists:
         reach["final"] += 1
     for name in [x for p in r16.values() for t in p for x in t]:
@@ -202,6 +216,7 @@ data["forecast"] = {
         "final": round(reach["final"] / N, 4),
         "rounds": out_rounds,
     },
+    "absences": [a for a in ABS if (a.get("until") or "9999") >= datetime.now(timezone.utc).date().isoformat()],
     "table": [
         {"name": t["name"], "played": t["played"], "pts": t["pts"], "gd": t["gd"],
          "p_top8": round(team_top8[t["name"]] / N, 3), "p_ko": round(team_ko[t["name"]] / N, 3),
