@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Radar PSG</title>
+<meta name="description" content="Les matchs de Ligue des champions du PSG au Parc des Princes, notés selon tes critères, avec les alertes d'ouverture de billetterie.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Radar PSG">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#08112a" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: one narrow column like a matchday programme; sticky tab bar; each match is a "ticket stub" row with score dial on the left. */
+:root{
+  --bg:#eef2f8; --surface:#ffffff; --ink:#0d1b3d; --muted:#56627d; --line:#d5dceb;
+  --navy:#13265c; --red:#d4202f; --red-soft:#fbe4e6;
+  --ok:#137a46; --ok-soft:#dcf2e5; --warn:#9a5b00; --warn-soft:#fbefd7; --off:#6c7590; --off-soft:#e8ebf2;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#08112a; --surface:#0f1b3c; --ink:#eaf0ff; --muted:#9aa7c7; --line:#22325f;
+  --navy:#c9d6ff; --red:#ff4b58; --red-soft:#3a1424;
+  --ok:#5fd394; --ok-soft:#123629; --warn:#f2b552; --warn-soft:#3a2a10; --off:#97a2c2; --off-soft:#1a274b;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#08112a; --surface:#0f1b3c; --ink:#eaf0ff; --muted:#9aa7c7; --line:#22325f;
+  --navy:#c9d6ff; --red:#ff4b58; --red-soft:#3a1424;
+  --ok:#5fd394; --ok-soft:#123629; --warn:#f2b552; --warn-soft:#3a2a10; --off:#97a2c2; --off-soft:#1a274b;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+.wrap{max-width:680px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:.01em}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:6px}
+
+header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand .eyebrow{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--red);font-weight:600}
+.brand h1{font-size:44px;line-height:.95;font-weight:800;color:var(--navy);text-transform:uppercase}
+.stamp{font-family:var(--cond);font-size:14px;color:var(--muted)}
+
+/* stripe: the Hechter band, used once */
+.band{height:6px;margin:14px 0 0;border-radius:3px;background:linear-gradient(90deg,var(--navy) 0 38%,var(--surface) 38% 42%,var(--red) 42% 58%,var(--surface) 58% 62%,var(--navy) 62%)}
+
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:14px 10px;margin-bottom:6px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.tabs button{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 10px;font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:14px;cursor:pointer;color:var(--muted)}
+nav.tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg)}
+
+section.view{display:flex;flex-direction:column;gap:14px}
+.lead{color:var(--muted);margin:0;max-width:62ch}
+
+/* match row */
+.match{display:grid;grid-template-columns:78px 1fr;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;position:relative}
+.match.hot{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.match.dim{opacity:.62}
+.dial{display:flex;flex-direction:column;align-items:center;gap:4px}
+.dial svg{width:72px;height:72px}
+.dial .lab{font-family:var(--cond);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.dial-num{font-family:var(--display);font-weight:800;font-size:26px;fill:var(--ink)}
+.dial-num.small{font-size:15px}
+.body{min-width:0;display:flex;flex-direction:column;gap:8px}
+.round{font-family:var(--cond);text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted);font-weight:600}
+.title{font-size:28px;line-height:1;font-weight:800;text-transform:uppercase;color:var(--ink)}
+.title .vs{color:var(--red)}
+.when{font-family:var(--cond);font-size:17px;font-weight:500;font-variant-numeric:tabular-nums}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.04em;padding:3px 10px;border-radius:999px;text-transform:uppercase}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.off{background:var(--off-soft);color:var(--off)}
+.pill.red{background:var(--red-soft);color:var(--red)}
+.note{font-size:14px;color:var(--muted);margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;border-radius:10px;padding:9px 14px;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.btn:hover{filter:brightness(1.05)}
+@media (max-width:420px){.match{grid-template-columns:1fr}.dial{flex-direction:row;justify-content:flex-start;gap:10px}.dial svg{width:56px;height:56px}.title{font-size:24px}}
+
+/* panels */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.panel h2{font-size:24px;text-transform:uppercase;color:var(--navy)}
+.panel h3{font-size:19px;text-transform:uppercase}
+.panel p{margin:0;max-width:62ch}
+.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.copyrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.copyrow code{flex:1;min-width:0;overflow-wrap:anywhere;font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px}
+
+/* stadium plan */
+.plan{width:100%;max-width:420px;align-self:center}
+.plan text{font-family:var(--cond);font-weight:600;fill:var(--ink);font-size:13px;letter-spacing:.06em}
+.legend{display:grid;grid-template-columns:1fr;gap:8px}
+.legend div{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start}
+.sw{width:18px;height:18px;border-radius:5px;margin-top:3px}
+
+/* settings */
+.field{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
+.field label{font-weight:600}
+.field output{font-family:var(--cond);font-weight:600;font-variant-numeric:tabular-nums;min-width:3ch;text-align:right}
+.field input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--red)}
+.field small{grid-column:1/-1;color:var(--muted)}
+.toggle{display:flex;gap:10px;align-items:center;font-weight:500}
+.toggle input{width:20px;height:20px;accent-color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:3px 4px 3px 10px;font-size:14px}
+.chip button{border:0;background:var(--off-soft);border-radius:999px;width:22px;height:22px;cursor:pointer;line-height:1}
+.addrow{display:flex;gap:8px}
+.addrow input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg)}
+.foot{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
+@media (prefers-reduced-motion:no-preference){.dial circle.arc{transition:stroke-dashoffset .5s ease}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="eyebrow">Ligue des champions · Parc des Princes</span>
+      <h1>Radar PSG</h1>
+    </div>
+    <span class="stamp" id="stamp">Chargement…</span>
+  </header>
+  <div class="band" aria-hidden="true"></div>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-matchs" aria-selected="true" data-view="matchs">Matchs</button>
+    <button role="tab" id="tab-placement" aria-selected="false" data-view="placement">Où s'asseoir</button>
+    <button role="tab" id="tab-criteres" aria-selected="false" data-view="criteres">Critères</button>
+  </nav>
+
+  <!-- MATCHS -->
+  <section class="view" id="view-matchs">
+    <p class="lead">Chaque match au Parc reçoit une note sur 100 selon tes critères. Au-dessus de ton seuil, il passe en rouge : c'est celui à ne pas rater.</p>
+    <div id="list"></div>
+
+    <div class="panel" id="alerts">
+      <h2>Recevoir les alertes sur l'iPhone</h2>
+      <p>Abonne-toi une seule fois au calendrier Radar PSG. Chaque ouverture de vente y apparaît toute seule dès qu'elle est annoncée, avec une notification 15 minutes avant. Les nouveaux matchs (après les tirages) s'ajoutent aussi automatiquement.</p>
+      <div class="actions"><a class="btn primary" id="subscribe" href="webcal://artuschr.github.io/radar-psg/alertes.ics">S'abonner aux alertes</a></div>
+      <p class="note">Si le bouton ne fait rien : <b>Réglages → Apps → Calendrier → Comptes → Ajouter un compte → Autre → Ajouter un calendrier avec abonnement</b>, puis colle ce lien :</p>
+      <div class="copyrow">
+        <code id="feed">https://artuschr.github.io/radar-psg/alertes.ics</code>
+        <button class="btn" id="copyfeed" type="button">Copier</button>
+      </div>
+      <p class="note" id="copymsg" aria-live="polite"></p>
+      <h3>Installer l'app sur l'écran d'accueil</h3>
+      <p>Dans Safari, ouvre cette page, appuie sur <b>Partager</b> puis <b>Sur l'écran d'accueil</b>.</p>
+    </div>
+  </section>
+
+  <!-- PLACEMENT -->
+  <section class="view" id="view-placement" hidden>
+    <p class="lead">Objectif : de l'ambiance et une bonne vue, sans payer les loges. Voici comment lire le Parc.</p>
+    <div class="panel">
+      <svg class="plan" viewBox="0 0 400 300" role="img" aria-label="Plan simplifié du Parc des Princes">
+        <rect x="20" y="20" width="360" height="260" rx="90" fill="var(--off-soft)" stroke="var(--line)"/>
+        <!-- pitch -->
+        <rect x="120" y="95" width="160" height="110" rx="4" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/>
+        <line x1="200" y1="95" x2="200" y2="205" stroke="var(--ok)" stroke-width="1.5"/>
+        <circle cx="200" cy="150" r="16" fill="none" stroke="var(--ok)" stroke-width="1.5"/>
+        <!-- Auteuil (left/north) -->
+        <rect x="40" y="88" width="64" height="124" rx="12" fill="var(--red)" opacity=".9"/>
+        <text x="72" y="154" text-anchor="middle" fill="#fff" style="fill:#fff" transform="rotate(-90 72 150)">AUTEUIL</text>
+        <!-- Boulogne (right/south) -->
+        <rect x="296" y="88" width="64" height="124" rx="12" fill="var(--red)" opacity=".55"/>
+        <text x="328" y="154" text-anchor="middle" transform="rotate(90 328 150)">BOULOGNE</text>
+        <!-- Paris (bottom/east) -->
+        <rect x="112" y="220" width="176" height="44" rx="10" fill="var(--off-soft)" stroke="var(--line)"/>
+        <rect x="112" y="220" width="70" height="44" rx="10" fill="var(--warn)" opacity=".85"/>
+        <text x="235" y="247" text-anchor="middle">PARIS</text>
+        <text x="147" y="247" text-anchor="middle" style="fill:#fff">★</text>
+        <!-- Borelli (top/west) -->
+        <rect x="112" y="36" width="176" height="44" rx="10" fill="var(--off-soft)" stroke="var(--line)"/>
+        <text x="200" y="63" text-anchor="middle">BORELLI</text>
+        <!-- away corner -->
+        <rect x="64" y="44" width="40" height="34" rx="8" fill="var(--navy)" opacity=".7"/>
+        <text x="84" y="65" text-anchor="middle" style="fill:var(--bg);font-size:10px">VISIT.</text>
+      </svg>
+      <div class="legend">
+        <div><span class="sw" style="background:var(--warn)"></span><span><b>Le bon compromis (★)</b> : tribune Paris, côté Auteuil, en niveau bas mais pas les tout premiers rangs. Tu vois tout le terrain de côté et tu as le virage Auteuil juste à côté pour l'ambiance.</span></div>
+        <div><span class="sw" style="background:var(--red)"></span><span><b>Virage Auteuil</b> : le cœur des chants (supporters ultras), debout tout le match. Ambiance maximale, mais vue derrière le but et peu de places en vente libre.</span></div>
+        <div><span class="sw" style="background:var(--red);opacity:.55"></span><span><b>Boulogne</b> : derrière l'autre but, ambiance populaire. Plus facile à trouver qu'Auteuil, vue de bout de terrain.</span></div>
+        <div><span class="sw" style="background:var(--off-soft);border:1px solid var(--line)"></span><span><b>Borelli et le reste de Paris</b> : les meilleures vues, mais plus calmes et souvent plus chères au centre.</span></div>
+        <div><span class="sw" style="background:var(--navy);opacity:.7"></span><span><b>À éviter</b> : le coin entre Auteuil et Borelli, réservé aux supporters adverses.</span></div>
+      </div>
+      <p class="note">Conseil achat : en vente grand public, cherche d'abord « Paris » avec un numéro de bloc proche d'Auteuil. Si c'est complet, Boulogne niveau bas reste un très bon plan B.</p>
+    </div>
+  </section>
+
+  <!-- CRITERES -->
+  <section class="view" id="view-criteres" hidden>
+    <p class="lead">Ces réglages restent sur ton téléphone. Les notes des matchs se recalculent tout de suite.</p>
+    <div class="panel">
+      <h2>Poids des critères</h2>
+      <div class="field"><label for="w-opp">Adversaire</label><output id="o-opp"></output><input type="range" id="w-opp" min="0" max="10" step="1"><small>Un gros club européen fait grimper la note.</small></div>
+      <div class="field"><label for="w-phase">Phase de la compétition</label><output id="o-phase"></output><input type="range" id="w-phase" min="0" max="10" step="1"><small>Phase de ligue &lt; barrages &lt; huitièmes &lt; quarts &lt; demies.</small></div>
+      <div class="field"><label for="w-stake">Enjeu</label><output id="o-stake"></output><input type="range" id="w-stake" min="0" max="10" step="1"><small>Un match qui décide d'une qualification compte plus.</small></div>
+      <div class="field"><label for="w-day">Jour du match</label><output id="o-day"></output><input type="range" id="w-day" min="0" max="10" step="1"><small>Bonus si le match tombe un jour qui t'arrange.</small></div>
+    </div>
+    <div class="panel">
+      <h2>Seuil d'alerte</h2>
+      <div class="field"><label for="thr">Match à ne pas rater au-dessus de</label><output id="o-thr"></output><input type="range" id="thr" min="20" max="90" step="5"></div>
+      <label class="toggle"><input type="checkbox" id="weeknights"> Les soirs de semaine me vont</label>
+      <label class="toggle"><input type="checkbox" id="hidelow"> Masquer les matchs sous le seuil</label>
+    </div>
+    <div class="panel">
+      <h2>Gros clubs</h2>
+      <p class="note">Contre ces équipes, le critère « Adversaire » est au maximum.</p>
+      <div class="chips" id="chips"></div>
+      <form class="addrow" id="addform">
+        <input id="addclub" placeholder="Ajouter un club (ex. Naples)" autocomplete="off">
+        <button class="btn" type="submit">Ajouter</button>
+      </form>
+      <button class="btn" type="button" id="reset">Revenir aux réglages de départ</button>
+    </div>
+  </section>
+
+  <p class="foot">Infos mises à jour chaque jour. Achat uniquement sur la billetterie officielle du PSG.</p>
+</div>
+
+<script>
+(function(){
+  const DEFAULTS = {
+    w:{opp:4,phase:3,stake:2,day:1}, thr:60, weeknights:true, hidelow:false,
+    big:["Real Madrid","FC Barcelone","Bayern Munich","Liverpool","Manchester City","Arsenal","Inter Milan","AC Milan","Juventus","Chelsea","Atlético de Madrid","Borussia Dortmund","Manchester United","Naples"]
+  };
+  const PHASE = {league:.3, playoff:.6, r16:.8, qf:.9, sf:1};
+  const KEY = "radar-psg-reglages";
+  let S = load(), DATA = null;
+
+  function load(){
+    try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && s.w) return Object.assign(structuredClone(DEFAULTS), s); }catch(e){}
+    return structuredClone(DEFAULTS);
+  }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+
+  const norm = s => (s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+  const isBig = name => S.big.some(b => { const a=norm(b), n=norm(name); return a && (n.includes(a) || a.includes(n)); });
+
+  function dayValue(iso){
+    if(!iso) return S.weeknights ? .6 : 0;
+    const d = new Date(iso).getDay();
+    if(d===5 || d===6 || d===0) return 1;
+    return S.weeknights ? .6 : 0;
+  }
+  function score(m, rep){
+    const w = S.w, tot = w.opp+w.phase+w.stake+w.day;
+    if(!tot) return 0;
+    const v = w.opp*rep + w.phase*(PHASE[m.phase]||.3) + w.stake*(m.stake||0) + w.day*dayValue(m.date);
+    return Math.round(100*v/tot);
+  }
+  function matchScore(m){
+    if(m.opponent) return {lo:score(m, isBig(m.opponent)?1:(m.rep||.4))};
+    return {lo:score(m,.4), hi:score(m,1)};
+  }
+
+  const fmtDate = iso => new Date(iso).toLocaleString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Paris"});
+  const fmtShort = iso => new Date(iso).toLocaleString("fr-FR",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Paris"});
+
+  function gcal(title, iso, minutes, details, url){
+    const s = new Date(iso), e = new Date(s.getTime()+minutes*60000);
+    const f = d => d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+    const p = new URLSearchParams({action:"TEMPLATE",text:title,dates:f(s)+"/"+f(e),details:details+"\n"+url});
+    return "https://calendar.google.com/calendar/render?"+p.toString();
+  }
+
+  function dial(sc, hot){
+    const r=30, c=2*Math.PI*r, val = sc.hi!=null ? sc.hi : sc.lo, off = c*(1-val/100);
+    const color = hot ? "var(--red)" : "var(--navy)";
+    const txt = sc.hi!=null ? `<text class="dial-num small" x="36" y="41" text-anchor="middle">${sc.lo}–${sc.hi}</text>` : `<text class="dial-num" x="36" y="45" text-anchor="middle">${sc.lo}</text>`;
+    return `<svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="${r}" fill="none" stroke="var(--line)" stroke-width="6"/><circle class="arc" cx="36" cy="36" r="${r}" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 36 36)"/>${txt}</svg>`;
+  }
+
+  function salePills(m){
+    const s = m.sale||{}, out=[];
+    const map = {announce:["Vente pas encore annoncée","off"], members:["Vente membres ouverte","ok"], public:["Vente grand public ouverte","ok"], soldout:["Complet","red"], resale:["Revente officielle","warn"], tbd:["Selon le tirage","off"], upcoming:["Ouverture annoncée","warn"]};
+    const p = map[s.status]||map.announce; out.push(`<span class="pill ${p[1]}">${p[0]}</span>`);
+    if(s.members_open) out.push(`<span class="pill warn">Membres : ${fmtShort(s.members_open)}</span>`);
+    if(s.public_open) out.push(`<span class="pill warn">Grand public : ${fmtShort(s.public_open)}</span>`);
+    return out.join("");
+  }
+
+  function render(){
+    if(!DATA) return;
+    const list = document.getElementById("list");
+    const now = Date.now();
+    const rows = DATA.matches.filter(m => !m.date || new Date(m.date).getTime() > now).map(m => {
+      const sc = matchScore(m), top = sc.hi!=null ? sc.hi : sc.lo, hot = top >= S.thr;
+      return {m, sc, hot, top};
+    });
+    let html = "";
+    rows.forEach(({m, sc, hot, top}) => {
+      if(S.hidelow && !hot) return;
+      const name = m.opponent ? `PSG <span class="vs">–</span> ${m.opponent}` : `PSG <span class="vs">–</span> ?`;
+      const when = m.date ? fmtDate(m.date) : `Au Parc : ${m.window}`;
+      const s = m.sale||{}, label = m.opponent ? "PSG – "+m.opponent : m.round;
+      let acts = `<a class="btn primary" href="${m.buy_url}" target="_blank" rel="noopener">Acheter</a>`;
+      const alertAt = s.members_open || s.public_open;
+      if(alertAt) acts += `<a class="btn" href="${gcal("🎟️ Vente billets "+label, alertAt, 30, "La vente ouvre maintenant.", m.buy_url)}" target="_blank" rel="noopener">Alerte vente (Google Agenda)</a>`;
+      else if(m.check_date) acts += `<a class="btn" href="${gcal("🔎 Vérifier les billets "+label, m.check_date, 15, "Date d'ouverture pas encore connue.", m.buy_url)}" target="_blank" rel="noopener">Rappel (Google Agenda)</a>`;
+      html += `<article class="match ${hot?"hot":""} ${top < S.thr-20 ? "dim":""}">
+        <div class="dial">${dial(sc, hot)}<span class="lab">${hot?"À ne pas rater":"Note /100"}</span></div>
+        <div class="body">
+          <span class="round">${m.round}</span>
+          <h2 class="title">${name}</h2>
+          <span class="when">${when}</span>
+          <div class="pills">${salePills(m)}</div>
+          <p class="note">${[m.stake_note, s.note].filter(Boolean).join(" ")}</p>
+          <div class="actions">${acts}</div>
+        </div></article>`;
+    });
+    list.innerHTML = html || `<p class="lead">Aucun match au-dessus de ton seuil pour l'instant. Baisse le seuil dans « Critères » pour tout voir.</p>`;
+    list.style.display="flex"; list.style.flexDirection="column"; list.style.gap="12px";
+  }
+
+  // settings UI
+  const ids = {opp:"w-opp",phase:"w-phase",stake:"w-stake",day:"w-day"};
+  function syncSettings(){
+    for(const k in ids){ const el=document.getElementById(ids[k]); el.value=S.w[k]; document.getElementById("o-"+k).textContent=S.w[k]; }
+    document.getElementById("thr").value=S.thr; document.getElementById("o-thr").textContent=S.thr;
+    document.getElementById("weeknights").checked=S.weeknights;
+    document.getElementById("hidelow").checked=S.hidelow;
+    document.getElementById("chips").innerHTML = S.big.map((b,i)=>`<span class="chip">${b.replace(/</g,"&lt;")}<button type="button" data-i="${i}" aria-label="Retirer ${b.replace(/"/g,"")}">×</button></span>`).join("");
+  }
+  for(const k in ids) document.getElementById(ids[k]).addEventListener("input", e=>{ S.w[k]=+e.target.value; document.getElementById("o-"+k).textContent=S.w[k]; save(); render(); });
+  document.getElementById("thr").addEventListener("input", e=>{ S.thr=+e.target.value; document.getElementById("o-thr").textContent=S.thr; save(); render(); });
+  document.getElementById("weeknights").addEventListener("change", e=>{ S.weeknights=e.target.checked; save(); render(); });
+  document.getElementById("hidelow").addEventListener("change", e=>{ S.hidelow=e.target.checked; save(); render(); });
+  document.getElementById("chips").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; S.big.splice(+b.dataset.i,1); save(); syncSettings(); render(); });
+  document.getElementById("addform").addEventListener("submit", e=>{ e.preventDefault(); const v=document.getElementById("addclub").value.trim(); if(v && !S.big.some(b=>norm(b)===norm(v))){ S.big.push(v); save(); syncSettings(); render(); } document.getElementById("addclub").value=""; });
+  document.getElementById("reset").addEventListener("click", ()=>{ S=structuredClone(DEFAULTS); save(); syncSettings(); render(); });
+
+  // tabs
+  const views = ["matchs","placement","criteres"];
+  function show(v){
+    if(!views.includes(v)) v="matchs";
+    views.forEach(x=>{ document.getElementById("view-"+x).hidden = x!==v; document.getElementById("tab-"+x).setAttribute("aria-selected", x===v); });
+  }
+  document.querySelector("nav.tabs").addEventListener("click", e=>{ const b=e.target.closest("button[data-view]"); if(b){ show(b.dataset.view); window.scrollTo({top:0}); } });
+  show((location.hash||"").slice(1));
+
+  document.getElementById("copyfeed").addEventListener("click", ()=>{
+    const t=document.getElementById("feed").textContent, msg=document.getElementById("copymsg");
+    const sel=()=>{ const r=document.createRange(); r.selectNodeContents(document.getElementById("feed")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent="Lien sélectionné : fais Copier."; };
+    if(navigator.clipboard) navigator.clipboard.writeText(t).then(()=>{ msg.textContent="Lien copié."; }).catch(sel); else sel();
+  });
+  if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+
+  syncSettings();
+  fetch("data.json",{cache:"no-store"}).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(d=>{
+    DATA=d;
+    document.getElementById("stamp").textContent = "Mis à jour le " + new Date(d.updated).toLocaleDateString("fr-FR",{day:"numeric",month:"long"});
+    render();
+  }).catch(()=>{
+    document.getElementById("stamp").textContent="Hors ligne";
+    document.getElementById("list").innerHTML=`<p class="lead">Les matchs n'ont pas pu se charger. Vérifie ta connexion et rouvre la page.</p>`;
+  });
+})();
+</script>
+</body>
+</html>

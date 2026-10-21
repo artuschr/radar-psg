@@ -1,0 +1,86 @@
+{
+  "updated": "2026-10-21T13:30:00+02:00",
+  "feed_url": "",
+  "matches": [
+    {
+      "id": "roma",
+      "opponent": "AS Roma",
+      "date": "2026-11-25T21:00:00+01:00",
+      "round": "Phase de ligue · Journée 5",
+      "phase": "league",
+      "rep": 0.6,
+      "stake": 0.5,
+      "stake_note": "Match de milieu de phase de ligue, utile pour viser le top 8.",
+      "sale": {
+        "status": "announce",
+        "members_open": null,
+        "public_open": null,
+        "note": "Date d'ouverture pas encore annoncée par le club."
+      },
+      "check_date": "2026-10-28T18:00:00+01:00",
+      "buy_url": "https://billetterie.psg.fr/"
+    },
+    {
+      "id": "galatasaray",
+      "opponent": "Galatasaray",
+      "date": "2027-01-27T21:00:00+01:00",
+      "round": "Phase de ligue · Journée 8",
+      "phase": "league",
+      "rep": 0.6,
+      "stake": 0.8,
+      "stake_note": "Dernière journée : le classement final (top 8 direct ou barrages) peut se jouer ce soir-là.",
+      "sale": {
+        "status": "announce",
+        "members_open": null,
+        "public_open": null,
+        "note": "Date d'ouverture pas encore annoncée par le club."
+      },
+      "check_date": "2026-12-28T18:00:00+01:00",
+      "buy_url": "https://billetterie.psg.fr/"
+    },
+    {
+      "id": "ko-barrage",
+      "opponent": null,
+      "window": "16-17 ou 23-24 février 2027",
+      "round": "Barrages",
+      "phase": "playoff",
+      "stake": 1,
+      "stake_note": "Seulement si le PSG finit entre la 9e et la 24e place. Adversaire connu après le tirage.",
+      "sale": { "status": "tbd", "members_open": null, "public_open": null, "note": "Dépend du classement et du tirage." },
+      "buy_url": "https://billetterie.psg.fr/"
+    },
+    {
+      "id": "ko-r16",
+      "opponent": null,
+      "window": "9-10 ou 16-17 mars 2027",
+      "round": "Huitièmes de finale",
+      "phase": "r16",
+      "stake": 1,
+      "stake_note": "Match aller ou retour au Parc selon le tirage.",
+      "sale": { "status": "tbd", "members_open": null, "public_open": null, "note": "Dépend du tirage." },
+      "buy_url": "https://billetterie.psg.fr/"
+    },
+    {
+      "id": "ko-qf",
+      "opponent": null,
+      "window": "6-7 ou 13-14 avril 2027",
+      "round": "Quarts de finale",
+      "phase": "qf",
+      "stake": 1,
+      "stake_note": "Si le PSG passe les huitièmes.",
+      "sale": { "status": "tbd", "members_open": null, "public_open": null, "note": "Dépend du tirage." },
+      "buy_url": "https://billetterie.psg.fr/"
+    },
+    {
+      "id": "ko-sf",
+      "opponent": null,
+      "window": "27-28 avril ou 4-5 mai 2027",
+      "round": "Demi-finales",
+      "phase": "sf",
+      "stake": 1,
+      "stake_note": "Si le PSG passe les quarts.",
+      "sale": { "status": "tbd", "members_open": null, "public_open": null, "note": "Dépend du tirage." },
+      "buy_url": "https://billetterie.psg.fr/"
+    }
+  ]
+}
