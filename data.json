@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T07:53:00+02:00",
+  "updated": "2026-10-23T07:52:00+02:00",
   "feed_url": "",
   "matches": [
     {
@@ -17,7 +17,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-10-22T07:53:00+02:00",
+        "checked": "2026-10-23T07:52:00+02:00",
         "source": null
       },
       "check_date": "2026-10-28T18:00:00+01:00",
@@ -38,7 +38,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-10-22T07:53:00+02:00",
+        "checked": "2026-10-23T07:52:00+02:00",
         "source": null
       },
       "check_date": "2026-12-28T18:00:00+01:00",
@@ -58,7 +58,7 @@
         "public_open": null,
         "note": "Dépend du classement et du tirage.",
         "availability": "unknown",
-        "checked": "2026-10-22T07:53:00+02:00",
+        "checked": "2026-10-23T07:52:00+02:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -77,7 +77,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-10-22T07:53:00+02:00",
+        "checked": "2026-10-23T07:52:00+02:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -96,7 +96,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-10-22T07:53:00+02:00",
+        "checked": "2026-10-23T07:52:00+02:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -115,14 +115,14 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-10-22T07:53:00+02:00",
+        "checked": "2026-10-23T07:52:00+02:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
     }
   ],
   "forecast": {
-    "updated": "2026-10-22T05:53+00:00",
+    "updated": "2026-10-23T05:52+00:00",
     "standings_date": "2026-10-21",
     "sims": 20000,
     "psg": {
@@ -696,10 +696,10 @@
       {
         "team": "FC Barcelone",
         "player": "Dani Olmo",
-        "injury": "Sorti vers la 20e contre le PSG",
+        "injury": "Lésion à l'adducteur gauche, environ un mois d'absence (communiqué du Barça du 21/10)",
         "since": "2026-10-20",
-        "until": "2026-11-10",
-        "estimated": true,
+        "until": "2026-11-20",
+        "estimated": false,
         "impact": 12
       }
     ],

@@ -385,10 +385,10 @@
     {
       "team": "FC Barcelone",
       "player": "Dani Olmo",
-      "injury": "Sorti vers la 20e contre le PSG",
+      "injury": "Lésion à l'adducteur gauche, environ un mois d'absence (communiqué du Barça du 21/10)",
       "since": "2026-10-20",
-      "until": "2026-11-10",
-      "estimated": true,
+      "until": "2026-11-20",
+      "estimated": false,
       "impact": 12
     }
   ]
