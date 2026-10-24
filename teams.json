@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-10-21",
+  "standings_date": "2026-10-24",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -389,6 +389,24 @@
       "since": "2026-10-20",
       "until": "2026-11-20",
       "estimated": false,
+      "impact": 12
+    },
+    {
+      "team": "Arsenal",
+      "player": "Bukayo Saka",
+      "injury": "Blessure au quadriceps contre le Bayern (21/10), jusqu'à deux mois selon la presse anglaise, examens en cours",
+      "since": "2026-10-21",
+      "until": "2026-12-16",
+      "estimated": true,
+      "impact": 20
+    },
+    {
+      "team": "Bayern Munich",
+      "player": "Luis Díaz",
+      "injury": "Petite déchirure aux ischio-jambiers gauches (confirmée par le Bayern), environ 4 à 6 semaines selon Bild",
+      "since": "2026-10-21",
+      "until": "2026-11-25",
+      "estimated": true,
       "impact": 12
     }
   ]
