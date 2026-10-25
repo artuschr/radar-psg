@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T07:52:00+02:00",
+  "updated": "2026-10-25T07:52:49+01:00",
   "feed_url": "",
   "matches": [
     {
@@ -17,7 +17,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-10-24T07:52:00+02:00",
+        "checked": "2026-10-25T07:52:49+01:00",
         "source": null
       },
       "check_date": "2026-10-28T18:00:00+01:00",
@@ -38,7 +38,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-10-24T07:52:00+02:00",
+        "checked": "2026-10-25T07:52:49+01:00",
         "source": null
       },
       "check_date": "2026-12-28T18:00:00+01:00",
@@ -122,8 +122,8 @@
     }
   ],
   "forecast": {
-    "updated": "2026-10-24T05:52+00:00",
-    "standings_date": "2026-10-24",
+    "updated": "2026-10-25T06:52+00:00",
+    "standings_date": "2026-10-25",
     "sims": 20000,
     "psg": {
       "top8": 0.908,
@@ -695,7 +695,7 @@
       {
         "team": "Arsenal",
         "player": "Bukayo Saka",
-        "injury": "Blessure au quadriceps contre le Bayern (21/10), jusqu'à deux mois selon la presse anglaise, examens en cours",
+        "injury": "Blessure au quadriceps contre le Bayern (21/10), au moins six semaines selon la BBC, examens complémentaires en cours",
         "since": "2026-10-21",
         "until": "2026-12-16",
         "estimated": true,

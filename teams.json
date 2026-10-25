@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-10-24",
+  "standings_date": "2026-10-25",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -394,7 +394,7 @@
     {
       "team": "Arsenal",
       "player": "Bukayo Saka",
-      "injury": "Blessure au quadriceps contre le Bayern (21/10), jusqu'à deux mois selon la presse anglaise, examens en cours",
+      "injury": "Blessure au quadriceps contre le Bayern (21/10), au moins six semaines selon la BBC, examens complémentaires en cours",
       "since": "2026-10-21",
       "until": "2026-12-16",
       "estimated": true,
