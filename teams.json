@@ -367,18 +367,18 @@
     {
       "team": "PSG",
       "player": "Marquinhos",
-      "injury": "Lésion à la cuisse droite, en soins plusieurs semaines (communiqué PSG du 21/10)",
+      "injury": "Lésion à la cuisse droite, en soins plusieurs semaines (communiqué PSG du 21/10), retour visé contre Nice le 21/11 (CulturePSG)",
       "since": "2026-10-20",
-      "until": "2026-11-17",
+      "until": "2026-11-21",
       "estimated": true,
       "impact": 12
     },
     {
       "team": "PSG",
       "player": "Nuno Mendes",
-      "injury": "Déjà forfait avant le Barça",
+      "injury": "Lésion à la cuisse gauche, retour visé contre Nice le 21/11 après la trêve (CulturePSG, 22/10)",
       "since": "2026-10-20",
-      "until": "2026-11-02",
+      "until": "2026-11-21",
       "estimated": true,
       "impact": 15
     },
