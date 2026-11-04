@@ -1,13 +1,8 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-03",
+  "standings_date": "2026-11-04",
   "league_avg_rating": 1800,
   "psg_remaining": [
-    {
-      "opp": "Villarreal",
-      "home": false,
-      "date": "2026-11-03"
-    },
     {
       "opp": "AS Roma",
       "home": true,
@@ -32,17 +27,25 @@
   "teams": [
     {
       "name": "PSG",
-      "played": 3,
-      "pts": 9,
-      "gd": 9,
+      "played": 4,
+      "pts": 12,
+      "gd": 15,
       "rating": 2000,
       "big": true
     },
     {
-      "name": "Aston Villa",
-      "played": 3,
+      "name": "FC Barcelone",
+      "played": 4,
       "pts": 9,
-      "gd": 9,
+      "gd": 8,
+      "rating": 1960,
+      "big": true
+    },
+    {
+      "name": "Aston Villa",
+      "played": 4,
+      "pts": 9,
+      "gd": 6,
       "rating": 1840,
       "big": false
     },
@@ -63,6 +66,14 @@
       "big": true
     },
     {
+      "name": "Sporting",
+      "played": 4,
+      "pts": 9,
+      "gd": 4,
+      "rating": 1820,
+      "big": false
+    },
+    {
       "name": "Betis Séville",
       "played": 3,
       "pts": 9,
@@ -71,12 +82,12 @@
       "big": false
     },
     {
-      "name": "Stuttgart",
-      "played": 3,
-      "pts": 7,
-      "gd": 5,
-      "rating": 1810,
-      "big": false
+      "name": "Bayern Munich",
+      "played": 4,
+      "pts": 8,
+      "gd": 7,
+      "rating": 1960,
+      "big": true
     },
     {
       "name": "Arsenal",
@@ -87,12 +98,12 @@
       "big": true
     },
     {
-      "name": "FC Barcelone",
-      "played": 3,
-      "pts": 6,
-      "gd": 5,
-      "rating": 1960,
-      "big": true
+      "name": "Stuttgart",
+      "played": 4,
+      "pts": 7,
+      "gd": 3,
+      "rating": 1810,
+      "big": false
     },
     {
       "name": "Côme",
@@ -111,20 +122,20 @@
       "big": true
     },
     {
-      "name": "Sporting",
-      "played": 3,
-      "pts": 6,
-      "gd": 3,
-      "rating": 1820,
-      "big": false
-    },
-    {
       "name": "Club Bruges",
       "played": 3,
       "pts": 6,
       "gd": 3,
       "rating": 1760,
       "big": false
+    },
+    {
+      "name": "Inter Milan",
+      "played": 4,
+      "pts": 6,
+      "gd": 2,
+      "rating": 1920,
+      "big": true
     },
     {
       "name": "Borussia Dortmund",
@@ -135,36 +146,44 @@
       "big": true
     },
     {
-      "name": "Bayern Munich",
-      "played": 3,
-      "pts": 5,
-      "gd": 5,
-      "rating": 1960,
+      "name": "LASK Linz",
+      "played": 4,
+      "pts": 6,
+      "gd": 1,
+      "rating": 1620,
+      "big": false
+    },
+    {
+      "name": "Manchester United",
+      "played": 4,
+      "pts": 6,
+      "gd": 0,
+      "rating": 1820,
       "big": true
     },
     {
+      "name": "Galatasaray",
+      "played": 4,
+      "pts": 6,
+      "gd": -1,
+      "rating": 1770,
+      "big": false
+    },
+    {
       "name": "AS Roma",
-      "played": 3,
+      "played": 4,
       "pts": 4,
-      "gd": 3,
+      "gd": 2,
       "rating": 1790,
       "big": false
     },
     {
       "name": "Shakhtar Donetsk",
-      "played": 3,
+      "played": 4,
       "pts": 4,
-      "gd": 1,
+      "gd": 0,
       "rating": 1700,
       "big": false
-    },
-    {
-      "name": "Atlético de Madrid",
-      "played": 3,
-      "pts": 4,
-      "gd": 1,
-      "rating": 1880,
-      "big": true
     },
     {
       "name": "PSV Eindhoven",
@@ -175,28 +194,20 @@
       "big": false
     },
     {
-      "name": "Villarreal",
-      "played": 3,
-      "pts": 3,
-      "gd": 0,
-      "rating": 1800,
+      "name": "Atlético de Madrid",
+      "played": 4,
+      "pts": 4,
+      "gd": -1,
+      "rating": 1880,
+      "big": true
+    },
+    {
+      "name": "Bodø/Glimt",
+      "played": 4,
+      "pts": 4,
+      "gd": -5,
+      "rating": 1720,
       "big": false
-    },
-    {
-      "name": "Manchester United",
-      "played": 3,
-      "pts": 3,
-      "gd": -1,
-      "rating": 1820,
-      "big": true
-    },
-    {
-      "name": "Inter Milan",
-      "played": 3,
-      "pts": 3,
-      "gd": -1,
-      "rating": 1920,
-      "big": true
     },
     {
       "name": "Naples",
@@ -215,35 +226,11 @@
       "big": false
     },
     {
-      "name": "LASK Linz",
-      "played": 3,
-      "pts": 3,
-      "gd": -3,
-      "rating": 1620,
-      "big": false
-    },
-    {
-      "name": "Galatasaray",
-      "played": 3,
-      "pts": 3,
-      "gd": -3,
-      "rating": 1770,
-      "big": false
-    },
-    {
       "name": "RC Lens",
       "played": 3,
       "pts": 3,
       "gd": -4,
       "rating": 1770,
-      "big": false
-    },
-    {
-      "name": "Feyenoord",
-      "played": 3,
-      "pts": 3,
-      "gd": -4,
-      "rating": 1750,
       "big": false
     },
     {
@@ -255,19 +242,27 @@
       "big": false
     },
     {
-      "name": "Bodø/Glimt",
-      "played": 3,
-      "pts": 3,
-      "gd": -5,
-      "rating": 1720,
-      "big": false
-    },
-    {
       "name": "AEK Athènes",
       "played": 3,
       "pts": 3,
       "gd": -5,
       "rating": 1680,
+      "big": false
+    },
+    {
+      "name": "Villarreal",
+      "played": 4,
+      "pts": 3,
+      "gd": -6,
+      "rating": 1800,
+      "big": false
+    },
+    {
+      "name": "Feyenoord",
+      "played": 4,
+      "pts": 3,
+      "gd": -7,
+      "rating": 1750,
       "big": false
     },
     {
@@ -295,6 +290,14 @@
       "big": false
     },
     {
+      "name": "Lille",
+      "played": 4,
+      "pts": 1,
+      "gd": -6,
+      "rating": 1790,
+      "big": false
+    },
+    {
       "name": "FC Porto",
       "played": 3,
       "pts": 0,
@@ -303,18 +306,10 @@
       "big": false
     },
     {
-      "name": "Lille",
-      "played": 3,
-      "pts": 0,
-      "gd": -6,
-      "rating": 1790,
-      "big": false
-    },
-    {
       "name": "Slovan Bratislava",
-      "played": 3,
+      "played": 4,
       "pts": 0,
-      "gd": -12,
+      "gd": -16,
       "rating": 1560,
       "big": false
     }
