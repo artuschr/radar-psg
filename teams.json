@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-04",
+  "standings_date": "2026-11-05",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -34,6 +34,30 @@
       "big": true
     },
     {
+      "name": "Real Madrid",
+      "played": 4,
+      "pts": 12,
+      "gd": 6,
+      "rating": 1950,
+      "big": true
+    },
+    {
+      "name": "Arsenal",
+      "played": 4,
+      "pts": 10,
+      "gd": 5,
+      "rating": 1980,
+      "big": true
+    },
+    {
+      "name": "Côme",
+      "played": 4,
+      "pts": 9,
+      "gd": 13,
+      "rating": 1780,
+      "big": false
+    },
+    {
       "name": "FC Barcelone",
       "played": 4,
       "pts": 9,
@@ -50,19 +74,19 @@
       "big": false
     },
     {
-      "name": "Liverpool",
-      "played": 3,
+      "name": "Manchester City",
+      "played": 4,
       "pts": 9,
       "gd": 5,
-      "rating": 1960,
+      "rating": 1940,
       "big": true
     },
     {
-      "name": "Real Madrid",
-      "played": 3,
+      "name": "Liverpool",
+      "played": 4,
       "pts": 9,
-      "gd": 5,
-      "rating": 1950,
+      "gd": 4,
+      "rating": 1960,
       "big": true
     },
     {
@@ -74,12 +98,28 @@
       "big": false
     },
     {
-      "name": "Betis Séville",
-      "played": 3,
+      "name": "Club Bruges",
+      "played": 4,
       "pts": 9,
-      "gd": 3,
+      "gd": 4,
+      "rating": 1760,
+      "big": false
+    },
+    {
+      "name": "Betis Séville",
+      "played": 4,
+      "pts": 9,
+      "gd": 2,
       "rating": 1780,
       "big": false
+    },
+    {
+      "name": "Borussia Dortmund",
+      "played": 4,
+      "pts": 9,
+      "gd": 2,
+      "rating": 1830,
+      "big": true
     },
     {
       "name": "Bayern Munich",
@@ -87,14 +127,6 @@
       "pts": 8,
       "gd": 7,
       "rating": 1960,
-      "big": true
-    },
-    {
-      "name": "Arsenal",
-      "played": 3,
-      "pts": 7,
-      "gd": 4,
-      "rating": 1980,
       "big": true
     },
     {
@@ -106,43 +138,11 @@
       "big": false
     },
     {
-      "name": "Côme",
-      "played": 3,
-      "pts": 6,
-      "gd": 5,
-      "rating": 1760,
-      "big": false
-    },
-    {
-      "name": "Manchester City",
-      "played": 3,
-      "pts": 6,
-      "gd": 4,
-      "rating": 1940,
-      "big": true
-    },
-    {
-      "name": "Club Bruges",
-      "played": 3,
-      "pts": 6,
-      "gd": 3,
-      "rating": 1760,
-      "big": false
-    },
-    {
       "name": "Inter Milan",
       "played": 4,
       "pts": 6,
       "gd": 2,
       "rating": 1920,
-      "big": true
-    },
-    {
-      "name": "Borussia Dortmund",
-      "played": 3,
-      "pts": 6,
-      "gd": 1,
-      "rating": 1830,
       "big": true
     },
     {
@@ -170,6 +170,14 @@
       "big": false
     },
     {
+      "name": "Fenerbahçe",
+      "played": 4,
+      "pts": 5,
+      "gd": -5,
+      "rating": 1760,
+      "big": false
+    },
+    {
       "name": "AS Roma",
       "played": 4,
       "pts": 4,
@@ -187,9 +195,9 @@
     },
     {
       "name": "PSV Eindhoven",
-      "played": 3,
+      "played": 4,
       "pts": 4,
-      "gd": 0,
+      "gd": -1,
       "rating": 1800,
       "big": false
     },
@@ -202,6 +210,14 @@
       "big": true
     },
     {
+      "name": "Viking",
+      "played": 4,
+      "pts": 4,
+      "gd": -1,
+      "rating": 1580,
+      "big": false
+    },
+    {
       "name": "Bodø/Glimt",
       "played": 4,
       "pts": 4,
@@ -210,42 +226,42 @@
       "big": false
     },
     {
-      "name": "Naples",
-      "played": 3,
+      "name": "FC Porto",
+      "played": 4,
       "pts": 3,
-      "gd": -2,
+      "gd": -1,
+      "rating": 1800,
+      "big": false
+    },
+    {
+      "name": "Naples",
+      "played": 4,
+      "pts": 3,
+      "gd": -5,
       "rating": 1850,
       "big": true
     },
     {
       "name": "Sabah",
-      "played": 3,
+      "played": 4,
       "pts": 3,
-      "gd": -3,
+      "gd": -6,
       "rating": 1550,
       "big": false
     },
     {
-      "name": "RC Lens",
-      "played": 3,
-      "pts": 3,
-      "gd": -4,
-      "rating": 1770,
-      "big": false
-    },
-    {
       "name": "RB Leipzig",
-      "played": 3,
+      "played": 4,
       "pts": 3,
-      "gd": -5,
+      "gd": -6,
       "rating": 1800,
       "big": false
     },
     {
       "name": "AEK Athènes",
-      "played": 3,
+      "played": 4,
       "pts": 3,
-      "gd": -5,
+      "gd": -6,
       "rating": 1680,
       "big": false
     },
@@ -266,27 +282,19 @@
       "big": false
     },
     {
-      "name": "Fenerbahçe",
-      "played": 3,
-      "pts": 2,
-      "gd": -6,
-      "rating": 1760,
+      "name": "RC Lens",
+      "played": 4,
+      "pts": 3,
+      "gd": -12,
+      "rating": 1750,
       "big": false
     },
     {
       "name": "Slavia Prague",
-      "played": 3,
-      "pts": 1,
-      "gd": -3,
-      "rating": 1700,
-      "big": false
-    },
-    {
-      "name": "Viking",
-      "played": 3,
+      "played": 4,
       "pts": 1,
       "gd": -4,
-      "rating": 1580,
+      "rating": 1700,
       "big": false
     },
     {
@@ -295,14 +303,6 @@
       "pts": 1,
       "gd": -6,
       "rating": 1790,
-      "big": false
-    },
-    {
-      "name": "FC Porto",
-      "played": 3,
-      "pts": 0,
-      "gd": -4,
-      "rating": 1800,
       "big": false
     },
     {

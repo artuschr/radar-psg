@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T08:00:00+01:00",
+  "updated": "2026-11-05T08:00:00+01:00",
   "feed_url": "",
   "matches": [
     {
@@ -15,9 +15,9 @@
         "status": "announce",
         "members_open": null,
         "public_open": null,
-        "note": "Date d'ouverture pas encore annoncée par le club (vérifié le 04/11).",
+        "note": "Date d'ouverture pas encore annoncée par le club (vérifié le 05/11).",
         "availability": "unknown",
-        "checked": "2026-11-04T08:00:00+01:00",
+        "checked": "2026-11-05T08:00:00+01:00",
         "source": null
       },
       "check_date": "2026-10-28T18:00:00+01:00",
@@ -38,7 +38,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-11-04T08:00:00+01:00",
+        "checked": "2026-11-05T08:00:00+01:00",
         "source": null
       },
       "check_date": "2026-12-28T18:00:00+01:00",
@@ -58,7 +58,7 @@
         "public_open": null,
         "note": "Dépend du classement et du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-04T08:00:00+01:00",
+        "checked": "2026-11-05T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -77,7 +77,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-04T08:00:00+01:00",
+        "checked": "2026-11-05T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -96,7 +96,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-04T08:00:00+01:00",
+        "checked": "2026-11-05T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -115,508 +115,488 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-04T08:00:00+01:00",
+        "checked": "2026-11-05T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
     }
   ],
   "forecast": {
-    "updated": "2026-11-04T06:52+00:00",
-    "standings_date": "2026-11-04",
+    "updated": "2026-11-05T06:52+00:00",
+    "standings_date": "2026-11-05",
     "sims": 20000,
     "psg": {
-      "top8": 0.9787,
-      "barrages": 0.0213,
+      "top8": 0.9699,
+      "barrages": 0.0301,
       "out": 0.0,
-      "final": 0.2616,
+      "final": 0.2627,
       "rounds": {
         "playoff": {
-          "p": 0.0213,
+          "p": 0.0301,
           "opponents": [
             {
-              "name": "RC Lens",
-              "p": 0.0728,
-              "big": false
-            },
-            {
-              "name": "LASK Linz",
-              "p": 0.0657,
-              "big": false
-            },
-            {
-              "name": "PSV Eindhoven",
-              "p": 0.061,
-              "big": false
-            },
-            {
-              "name": "Galatasaray",
-              "p": 0.0563,
-              "big": false
-            },
-            {
-              "name": "Atlético de Madrid",
-              "p": 0.054,
-              "big": true
-            },
-            {
               "name": "AS Roma",
-              "p": 0.054,
-              "big": false
-            },
-            {
-              "name": "RB Leipzig",
-              "p": 0.0516,
-              "big": false
-            },
-            {
-              "name": "Feyenoord",
-              "p": 0.0516,
+              "p": 0.0631,
               "big": false
             },
             {
               "name": "Fenerbahçe",
-              "p": 0.0469,
+              "p": 0.0615,
               "big": false
-            },
-            {
-              "name": "Club Bruges",
-              "p": 0.0446,
-              "big": false
-            },
-            {
-              "name": "Villarreal",
-              "p": 0.0423,
-              "big": false
-            },
-            {
-              "name": "AEK Athènes",
-              "p": 0.0423,
-              "big": false
-            },
-            {
-              "name": "Manchester United",
-              "p": 0.0399,
-              "big": true
             },
             {
               "name": "Shakhtar Donetsk",
-              "p": 0.0399,
-              "big": false
-            },
-            {
-              "name": "FC Porto",
-              "p": 0.0352,
-              "big": false
-            },
-            {
-              "name": "Slavia Prague",
-              "p": 0.0305,
-              "big": false
-            },
-            {
-              "name": "Côme",
-              "p": 0.0305,
-              "big": false
-            },
-            {
-              "name": "Bodø/Glimt",
-              "p": 0.0305,
-              "big": false
-            },
-            {
-              "name": "Stuttgart",
-              "p": 0.0258,
+              "p": 0.0615,
               "big": false
             },
             {
               "name": "Naples",
-              "p": 0.0235,
+              "p": 0.0598,
               "big": true
             },
             {
-              "name": "Borussia Dortmund",
-              "p": 0.0235,
+              "name": "PSV Eindhoven",
+              "p": 0.0598,
+              "big": false
+            },
+            {
+              "name": "LASK Linz",
+              "p": 0.0565,
+              "big": false
+            },
+            {
+              "name": "Villarreal",
+              "p": 0.0532,
+              "big": false
+            },
+            {
+              "name": "Galatasaray",
+              "p": 0.0532,
+              "big": false
+            },
+            {
+              "name": "Feyenoord",
+              "p": 0.0515,
+              "big": false
+            },
+            {
+              "name": "FC Porto",
+              "p": 0.0465,
+              "big": false
+            },
+            {
+              "name": "Bodø/Glimt",
+              "p": 0.0432,
+              "big": false
+            },
+            {
+              "name": "Viking",
+              "p": 0.0432,
+              "big": false
+            },
+            {
+              "name": "Manchester United",
+              "p": 0.0432,
+              "big": true
+            },
+            {
+              "name": "Atlético de Madrid",
+              "p": 0.0415,
               "big": true
             },
             {
               "name": "Lille",
-              "p": 0.0164,
+              "p": 0.0349,
               "big": false
             },
             {
-              "name": "Inter Milan",
-              "p": 0.0117,
-              "big": true
-            },
-            {
-              "name": "Sabah",
-              "p": 0.0117,
-              "big": false
-            }
-          ],
-          "p_big": 0.1643,
-          "known": null
-        },
-        "r16": {
-          "p": 0.9958,
-          "opponents": [
-            {
-              "name": "Inter Milan",
-              "p": 0.0682,
-              "big": true
-            },
-            {
-              "name": "Manchester United",
-              "p": 0.0639,
-              "big": true
-            },
-            {
-              "name": "Atlético de Madrid",
-              "p": 0.0626,
-              "big": true
-            },
-            {
-              "name": "Stuttgart",
-              "p": 0.0582,
-              "big": false
-            },
-            {
-              "name": "Borussia Dortmund",
-              "p": 0.0534,
-              "big": true
-            },
-            {
-              "name": "Naples",
-              "p": 0.0522,
-              "big": true
-            },
-            {
-              "name": "PSV Eindhoven",
-              "p": 0.0462,
-              "big": false
-            },
-            {
-              "name": "Club Bruges",
-              "p": 0.0444,
-              "big": false
-            },
-            {
-              "name": "Galatasaray",
-              "p": 0.044,
-              "big": false
-            },
-            {
-              "name": "Côme",
-              "p": 0.0439,
-              "big": false
-            },
-            {
-              "name": "AS Roma",
-              "p": 0.0375,
-              "big": false
-            },
-            {
-              "name": "Manchester City",
-              "p": 0.0365,
-              "big": true
-            },
-            {
-              "name": "Sporting",
-              "p": 0.036,
-              "big": false
-            },
-            {
-              "name": "Aston Villa",
-              "p": 0.0327,
-              "big": false
-            },
-            {
-              "name": "RB Leipzig",
-              "p": 0.0326,
+              "name": "AEK Athènes",
+              "p": 0.0316,
               "big": false
             },
             {
               "name": "RC Lens",
-              "p": 0.0285,
+              "p": 0.0316,
               "big": false
             },
             {
-              "name": "Bayern Munich",
-              "p": 0.0281,
+              "name": "RB Leipzig",
+              "p": 0.0316,
+              "big": false
+            },
+            {
+              "name": "Stuttgart",
+              "p": 0.0266,
+              "big": false
+            },
+            {
+              "name": "Inter Milan",
+              "p": 0.0233,
+              "big": true
+            },
+            {
+              "name": "Slavia Prague",
+              "p": 0.0233,
+              "big": false
+            },
+            {
+              "name": "Sabah",
+              "p": 0.0166,
+              "big": false
+            },
+            {
+              "name": "Betis Séville",
+              "p": 0.015,
+              "big": false
+            }
+          ],
+          "p_big": 0.1744,
+          "known": null
+        },
+        "r16": {
+          "p": 0.994,
+          "opponents": [
+            {
+              "name": "Inter Milan",
+              "p": 0.0691,
+              "big": true
+            },
+            {
+              "name": "Atlético de Madrid",
+              "p": 0.0658,
+              "big": true
+            },
+            {
+              "name": "Manchester United",
+              "p": 0.0638,
+              "big": true
+            },
+            {
+              "name": "Stuttgart",
+              "p": 0.062,
+              "big": false
+            },
+            {
+              "name": "Galatasaray",
+              "p": 0.0496,
+              "big": false
+            },
+            {
+              "name": "Borussia Dortmund",
+              "p": 0.0466,
               "big": true
             },
             {
               "name": "Betis Séville",
-              "p": 0.0274,
+              "p": 0.0455,
               "big": false
             },
             {
-              "name": "Arsenal",
-              "p": 0.0235,
-              "big": true
-            },
-            {
-              "name": "Shakhtar Donetsk",
-              "p": 0.0203,
+              "name": "Club Bruges",
+              "p": 0.0442,
               "big": false
             },
             {
-              "name": "Villarreal",
-              "p": 0.0191,
+              "name": "Sporting",
+              "p": 0.0421,
+              "big": false
+            },
+            {
+              "name": "PSV Eindhoven",
+              "p": 0.0405,
+              "big": false
+            },
+            {
+              "name": "AS Roma",
+              "p": 0.04,
+              "big": false
+            },
+            {
+              "name": "Côme",
+              "p": 0.0376,
+              "big": false
+            },
+            {
+              "name": "Aston Villa",
+              "p": 0.0361,
               "big": false
             },
             {
               "name": "Fenerbahçe",
-              "p": 0.0179,
+              "p": 0.0349,
               "big": false
             },
             {
-              "name": "Bodø/Glimt",
-              "p": 0.017,
-              "big": false
-            },
-            {
-              "name": "LASK Linz",
-              "p": 0.0158,
-              "big": false
-            },
-            {
-              "name": "FC Barcelone",
-              "p": 0.0155,
+              "name": "Naples",
+              "p": 0.0348,
               "big": true
             },
             {
-              "name": "AEK Athènes",
-              "p": 0.0131,
-              "big": false
-            },
-            {
-              "name": "Feyenoord",
-              "p": 0.0128,
-              "big": false
+              "name": "Bayern Munich",
+              "p": 0.0321,
+              "big": true
             },
             {
               "name": "FC Porto",
-              "p": 0.0123,
+              "p": 0.0267,
               "big": false
-            }
-          ],
-          "p_big": 0.4225,
-          "known": null
-        },
-        "qf": {
-          "p": 0.7168,
-          "opponents": [
-            {
-              "name": "Bayern Munich",
-              "p": 0.0909,
-              "big": true
-            },
-            {
-              "name": "Arsenal",
-              "p": 0.0846,
-              "big": true
             },
             {
               "name": "Manchester City",
-              "p": 0.0844,
-              "big": true
-            },
-            {
-              "name": "FC Barcelone",
-              "p": 0.0786,
-              "big": true
-            },
-            {
-              "name": "Inter Milan",
-              "p": 0.0659,
-              "big": true
-            },
-            {
-              "name": "Real Madrid",
-              "p": 0.0622,
+              "p": 0.0245,
               "big": true
             },
             {
               "name": "Liverpool",
-              "p": 0.0611,
+              "p": 0.0225,
               "big": true
             },
             {
-              "name": "Aston Villa",
-              "p": 0.0603,
-              "big": false
-            },
-            {
-              "name": "Sporting",
-              "p": 0.0551,
-              "big": false
-            },
-            {
-              "name": "Betis Séville",
-              "p": 0.0475,
-              "big": false
-            },
-            {
-              "name": "Borussia Dortmund",
-              "p": 0.0387,
-              "big": true
-            },
-            {
-              "name": "Stuttgart",
-              "p": 0.0322,
-              "big": false
-            },
-            {
-              "name": "Atlético de Madrid",
-              "p": 0.0271,
-              "big": true
-            },
-            {
-              "name": "Naples",
-              "p": 0.0255,
-              "big": true
-            },
-            {
-              "name": "Manchester United",
-              "p": 0.0253,
-              "big": true
-            },
-            {
-              "name": "Côme",
-              "p": 0.0247,
-              "big": false
-            },
-            {
-              "name": "Club Bruges",
-              "p": 0.0221,
-              "big": false
-            },
-            {
-              "name": "PSV Eindhoven",
-              "p": 0.0189,
-              "big": false
-            },
-            {
-              "name": "Galatasaray",
-              "p": 0.0149,
-              "big": false
-            },
-            {
-              "name": "AS Roma",
-              "p": 0.0132,
-              "big": false
-            },
-            {
-              "name": "RC Lens",
-              "p": 0.0116,
+              "name": "Villarreal",
+              "p": 0.0213,
               "big": false
             },
             {
               "name": "RB Leipzig",
-              "p": 0.0113,
+              "p": 0.0212,
               "big": false
-            }
-          ],
-          "p_big": 0.6444,
-          "known": null
-        },
-        "sf": {
-          "p": 0.4495,
-          "opponents": [
-            {
-              "name": "Arsenal",
-              "p": 0.1266,
-              "big": true
-            },
-            {
-              "name": "Liverpool",
-              "p": 0.1184,
-              "big": true
             },
             {
               "name": "FC Barcelone",
-              "p": 0.1134,
+              "p": 0.0206,
               "big": true
             },
             {
-              "name": "Real Madrid",
-              "p": 0.1121,
+              "name": "Shakhtar Donetsk",
+              "p": 0.019,
+              "big": false
+            },
+            {
+              "name": "LASK Linz",
+              "p": 0.0176,
+              "big": false
+            },
+            {
+              "name": "Bodø/Glimt",
+              "p": 0.0162,
+              "big": false
+            },
+            {
+              "name": "Arsenal",
+              "p": 0.0147,
+              "big": true
+            },
+            {
+              "name": "Feyenoord",
+              "p": 0.0134,
+              "big": false
+            },
+            {
+              "name": "RC Lens",
+              "p": 0.011,
+              "big": false
+            }
+          ],
+          "p_big": 0.3992,
+          "known": null
+        },
+        "qf": {
+          "p": 0.7149,
+          "opponents": [
+            {
+              "name": "Manchester City",
+              "p": 0.088,
               "big": true
             },
             {
               "name": "Bayern Munich",
-              "p": 0.1051,
+              "p": 0.088,
               "big": true
             },
             {
-              "name": "Manchester City",
-              "p": 0.0825,
+              "name": "Liverpool",
+              "p": 0.0878,
+              "big": true
+            },
+            {
+              "name": "FC Barcelone",
+              "p": 0.0834,
+              "big": true
+            },
+            {
+              "name": "Arsenal",
+              "p": 0.0792,
               "big": true
             },
             {
               "name": "Inter Milan",
-              "p": 0.0543,
+              "p": 0.0585,
               "big": true
             },
             {
               "name": "Aston Villa",
-              "p": 0.0413,
+              "p": 0.0583,
               "big": false
-            },
-            {
-              "name": "Sporting",
-              "p": 0.0284,
-              "big": false
-            },
-            {
-              "name": "Atlético de Madrid",
-              "p": 0.0276,
-              "big": true
             },
             {
               "name": "Borussia Dortmund",
-              "p": 0.0246,
+              "p": 0.0539,
               "big": true
+            },
+            {
+              "name": "Sporting",
+              "p": 0.0492,
+              "big": false
+            },
+            {
+              "name": "Real Madrid",
+              "p": 0.0484,
+              "big": true
+            },
+            {
+              "name": "Côme",
+              "p": 0.0409,
+              "big": false
             },
             {
               "name": "Betis Séville",
-              "p": 0.023,
-              "big": false
-            },
-            {
-              "name": "Naples",
-              "p": 0.0197,
-              "big": true
-            },
-            {
-              "name": "Manchester United",
-              "p": 0.0181,
-              "big": true
-            },
-            {
-              "name": "Stuttgart",
-              "p": 0.0181,
-              "big": false
-            },
-            {
-              "name": "PSV Eindhoven",
-              "p": 0.0125,
+              "p": 0.0361,
               "big": false
             },
             {
               "name": "Club Bruges",
-              "p": 0.0123,
+              "p": 0.0309,
               "big": false
             },
             {
-              "name": "Côme",
-              "p": 0.0115,
+              "name": "Atlético de Madrid",
+              "p": 0.0266,
+              "big": true
+            },
+            {
+              "name": "Stuttgart",
+              "p": 0.0245,
+              "big": false
+            },
+            {
+              "name": "Manchester United",
+              "p": 0.0243,
+              "big": true
+            },
+            {
+              "name": "Naples",
+              "p": 0.0164,
+              "big": true
+            },
+            {
+              "name": "Galatasaray",
+              "p": 0.0136,
+              "big": false
+            },
+            {
+              "name": "PSV Eindhoven",
+              "p": 0.0131,
+              "big": false
+            },
+            {
+              "name": "AS Roma",
+              "p": 0.012,
               "big": false
             }
           ],
-          "p_big": 0.8024,
+          "p_big": 0.6546,
+          "known": null
+        },
+        "sf": {
+          "p": 0.4492,
+          "opponents": [
+            {
+              "name": "Arsenal",
+              "p": 0.1272,
+              "big": true
+            },
+            {
+              "name": "Liverpool",
+              "p": 0.1141,
+              "big": true
+            },
+            {
+              "name": "FC Barcelone",
+              "p": 0.1128,
+              "big": true
+            },
+            {
+              "name": "Real Madrid",
+              "p": 0.1109,
+              "big": true
+            },
+            {
+              "name": "Manchester City",
+              "p": 0.0992,
+              "big": true
+            },
+            {
+              "name": "Bayern Munich",
+              "p": 0.0944,
+              "big": true
+            },
+            {
+              "name": "Inter Milan",
+              "p": 0.0601,
+              "big": true
+            },
+            {
+              "name": "Aston Villa",
+              "p": 0.0412,
+              "big": false
+            },
+            {
+              "name": "Borussia Dortmund",
+              "p": 0.0324,
+              "big": true
+            },
+            {
+              "name": "Sporting",
+              "p": 0.0268,
+              "big": false
+            },
+            {
+              "name": "Atlético de Madrid",
+              "p": 0.0252,
+              "big": true
+            },
+            {
+              "name": "Côme",
+              "p": 0.019,
+              "big": false
+            },
+            {
+              "name": "Betis Séville",
+              "p": 0.0187,
+              "big": false
+            },
+            {
+              "name": "Stuttgart",
+              "p": 0.0186,
+              "big": false
+            },
+            {
+              "name": "Manchester United",
+              "p": 0.016,
+              "big": true
+            },
+            {
+              "name": "Club Bruges",
+              "p": 0.0136,
+              "big": false
+            },
+            {
+              "name": "Naples",
+              "p": 0.012,
+              "big": true
+            }
+          ],
+          "p_big": 0.8042,
           "known": null
         }
       }
@@ -692,16 +672,43 @@
         "played": 4,
         "pts": 12,
         "gd": 15,
-        "p_top8": 0.979,
+        "p_top8": 0.97,
         "p_ko": 1.0,
         "big": true
+      },
+      {
+        "name": "Real Madrid",
+        "played": 4,
+        "pts": 12,
+        "gd": 6,
+        "p_top8": 0.929,
+        "p_ko": 1.0,
+        "big": true
+      },
+      {
+        "name": "Arsenal",
+        "played": 4,
+        "pts": 10,
+        "gd": 5,
+        "p_top8": 0.803,
+        "p_ko": 1.0,
+        "big": true
+      },
+      {
+        "name": "Côme",
+        "played": 4,
+        "pts": 9,
+        "gd": 13,
+        "p_top8": 0.384,
+        "p_ko": 0.999,
+        "big": false
       },
       {
         "name": "FC Barcelone",
         "played": 4,
         "pts": 9,
         "gd": 8,
-        "p_top8": 0.769,
+        "p_top8": 0.73,
         "p_ko": 1.0,
         "big": true
       },
@@ -710,26 +717,26 @@
         "played": 4,
         "pts": 9,
         "gd": 6,
-        "p_top8": 0.495,
+        "p_top8": 0.456,
         "p_ko": 0.999,
         "big": false
       },
       {
-        "name": "Liverpool",
-        "played": 3,
+        "name": "Manchester City",
+        "played": 4,
         "pts": 9,
         "gd": 5,
-        "p_top8": 0.862,
-        "p_ko": 1.0,
+        "p_top8": 0.65,
+        "p_ko": 0.999,
         "big": true
       },
       {
-        "name": "Real Madrid",
-        "played": 3,
+        "name": "Liverpool",
+        "played": 4,
         "pts": 9,
-        "gd": 5,
-        "p_top8": 0.852,
-        "p_ko": 1.0,
+        "gd": 4,
+        "p_top8": 0.672,
+        "p_ko": 0.999,
         "big": true
       },
       {
@@ -737,35 +744,44 @@
         "played": 4,
         "pts": 9,
         "gd": 4,
-        "p_top8": 0.413,
-        "p_ko": 0.997,
+        "p_top8": 0.377,
+        "p_ko": 0.998,
+        "big": false
+      },
+      {
+        "name": "Club Bruges",
+        "played": 4,
+        "pts": 9,
+        "gd": 4,
+        "p_top8": 0.282,
+        "p_ko": 0.996,
         "big": false
       },
       {
         "name": "Betis Séville",
-        "played": 3,
+        "played": 4,
         "pts": 9,
-        "gd": 3,
-        "p_top8": 0.496,
-        "p_ko": 0.997,
+        "gd": 2,
+        "p_top8": 0.277,
+        "p_ko": 0.995,
         "big": false
+      },
+      {
+        "name": "Borussia Dortmund",
+        "played": 4,
+        "pts": 9,
+        "gd": 2,
+        "p_top8": 0.362,
+        "p_ko": 0.997,
+        "big": true
       },
       {
         "name": "Bayern Munich",
         "played": 4,
         "pts": 8,
         "gd": 7,
-        "p_top8": 0.637,
-        "p_ko": 0.998,
-        "big": true
-      },
-      {
-        "name": "Arsenal",
-        "played": 3,
-        "pts": 7,
-        "gd": 4,
-        "p_top8": 0.695,
-        "p_ko": 0.997,
+        "p_top8": 0.578,
+        "p_ko": 0.999,
         "big": true
       },
       {
@@ -773,35 +789,8 @@
         "played": 4,
         "pts": 7,
         "gd": 3,
-        "p_top8": 0.152,
-        "p_ko": 0.951,
-        "big": false
-      },
-      {
-        "name": "Côme",
-        "played": 3,
-        "pts": 6,
-        "gd": 5,
-        "p_top8": 0.174,
-        "p_ko": 0.922,
-        "big": false
-      },
-      {
-        "name": "Manchester City",
-        "played": 3,
-        "pts": 6,
-        "gd": 4,
-        "p_top8": 0.525,
-        "p_ko": 0.99,
-        "big": true
-      },
-      {
-        "name": "Club Bruges",
-        "played": 3,
-        "pts": 6,
-        "gd": 3,
-        "p_top8": 0.157,
-        "p_ko": 0.912,
+        "p_top8": 0.135,
+        "p_ko": 0.955,
         "big": false
       },
       {
@@ -809,17 +798,8 @@
         "played": 4,
         "pts": 6,
         "gd": 2,
-        "p_top8": 0.214,
-        "p_ko": 0.954,
-        "big": true
-      },
-      {
-        "name": "Borussia Dortmund",
-        "played": 3,
-        "pts": 6,
-        "gd": 1,
-        "p_top8": 0.22,
-        "p_ko": 0.946,
+        "p_top8": 0.194,
+        "p_ko": 0.96,
         "big": true
       },
       {
@@ -827,8 +807,8 @@
         "played": 4,
         "pts": 6,
         "gd": 1,
-        "p_top8": 0.016,
-        "p_ko": 0.609,
+        "p_top8": 0.013,
+        "p_ko": 0.626,
         "big": false
       },
       {
@@ -836,8 +816,8 @@
         "played": 4,
         "pts": 6,
         "gd": 0,
-        "p_top8": 0.079,
-        "p_ko": 0.88,
+        "p_top8": 0.067,
+        "p_ko": 0.882,
         "big": true
       },
       {
@@ -845,8 +825,17 @@
         "played": 4,
         "pts": 6,
         "gd": -1,
-        "p_top8": 0.046,
-        "p_ko": 0.809,
+        "p_top8": 0.039,
+        "p_ko": 0.825,
+        "big": false
+      },
+      {
+        "name": "Fenerbahçe",
+        "played": 4,
+        "pts": 5,
+        "gd": -5,
+        "p_top8": 0.011,
+        "p_ko": 0.637,
         "big": false
       },
       {
@@ -854,8 +843,8 @@
         "played": 4,
         "pts": 4,
         "gd": 2,
-        "p_top8": 0.016,
-        "p_ko": 0.636,
+        "p_top8": 0.014,
+        "p_ko": 0.644,
         "big": false
       },
       {
@@ -863,17 +852,17 @@
         "played": 4,
         "pts": 4,
         "gd": 0,
-        "p_top8": 0.005,
-        "p_ko": 0.442,
+        "p_top8": 0.004,
+        "p_ko": 0.463,
         "big": false
       },
       {
         "name": "PSV Eindhoven",
-        "played": 3,
+        "played": 4,
         "pts": 4,
-        "gd": 0,
-        "p_top8": 0.054,
-        "p_ko": 0.771,
+        "gd": -1,
+        "p_top8": 0.008,
+        "p_ko": 0.619,
         "big": false
       },
       {
@@ -881,9 +870,18 @@
         "played": 4,
         "pts": 4,
         "gd": -1,
-        "p_top8": 0.033,
-        "p_ko": 0.751,
+        "p_top8": 0.027,
+        "p_ko": 0.765,
         "big": true
+      },
+      {
+        "name": "Viking",
+        "played": 4,
+        "pts": 4,
+        "gd": -1,
+        "p_top8": 0.001,
+        "p_ko": 0.238,
+        "big": false
       },
       {
         "name": "Bodø/Glimt",
@@ -891,52 +889,52 @@
         "pts": 4,
         "gd": -5,
         "p_top8": 0.004,
-        "p_ko": 0.404,
+        "p_ko": 0.415,
+        "big": false
+      },
+      {
+        "name": "FC Porto",
+        "played": 4,
+        "pts": 3,
+        "gd": -1,
+        "p_top8": 0.003,
+        "p_ko": 0.478,
         "big": false
       },
       {
         "name": "Naples",
-        "played": 3,
+        "played": 4,
         "pts": 3,
-        "gd": -2,
-        "p_top8": 0.047,
-        "p_ko": 0.725,
+        "gd": -5,
+        "p_top8": 0.004,
+        "p_ko": 0.529,
         "big": true
       },
       {
         "name": "Sabah",
-        "played": 3,
+        "played": 4,
         "pts": 3,
-        "gd": -3,
-        "p_top8": 0.001,
-        "p_ko": 0.156,
-        "big": false
-      },
-      {
-        "name": "RC Lens",
-        "played": 3,
-        "pts": 3,
-        "gd": -4,
-        "p_top8": 0.016,
-        "p_ko": 0.531,
+        "gd": -6,
+        "p_top8": 0.0,
+        "p_ko": 0.088,
         "big": false
       },
       {
         "name": "RB Leipzig",
-        "played": 3,
+        "played": 4,
         "pts": 3,
-        "gd": -5,
-        "p_top8": 0.022,
-        "p_ko": 0.581,
+        "gd": -6,
+        "p_top8": 0.002,
+        "p_ko": 0.406,
         "big": false
       },
       {
         "name": "AEK Athènes",
-        "played": 3,
+        "played": 4,
         "pts": 3,
-        "gd": -5,
-        "p_top8": 0.007,
-        "p_ko": 0.349,
+        "gd": -6,
+        "p_top8": 0.001,
+        "p_ko": 0.225,
         "big": false
       },
       {
@@ -944,8 +942,8 @@
         "played": 4,
         "pts": 3,
         "gd": -6,
-        "p_top8": 0.003,
-        "p_ko": 0.383,
+        "p_top8": 0.002,
+        "p_ko": 0.397,
         "big": false
       },
       {
@@ -954,34 +952,25 @@
         "pts": 3,
         "gd": -7,
         "p_top8": 0.001,
-        "p_ko": 0.298,
+        "p_ko": 0.307,
         "big": false
       },
       {
-        "name": "Fenerbahçe",
-        "played": 3,
-        "pts": 2,
-        "gd": -6,
-        "p_top8": 0.005,
-        "p_ko": 0.357,
+        "name": "RC Lens",
+        "played": 4,
+        "pts": 3,
+        "gd": -12,
+        "p_top8": 0.001,
+        "p_ko": 0.291,
         "big": false
       },
       {
         "name": "Slavia Prague",
-        "played": 3,
-        "pts": 1,
-        "gd": -3,
-        "p_top8": 0.001,
-        "p_ko": 0.2,
-        "big": false
-      },
-      {
-        "name": "Viking",
-        "played": 3,
+        "played": 4,
         "pts": 1,
         "gd": -4,
         "p_top8": 0.0,
-        "p_ko": 0.067,
+        "p_ko": 0.101,
         "big": false
       },
       {
@@ -990,16 +979,7 @@
         "pts": 1,
         "gd": -6,
         "p_top8": 0.0,
-        "p_ko": 0.152,
-        "big": false
-      },
-      {
-        "name": "FC Porto",
-        "played": 3,
-        "pts": 0,
-        "gd": -4,
-        "p_top8": 0.001,
-        "p_ko": 0.232,
+        "p_ko": 0.16,
         "big": false
       },
       {
