@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05T08:00:00+01:00",
+  "updated": "2026-11-06T08:00:00+01:00",
   "feed_url": "",
   "matches": [
     {
@@ -12,13 +12,13 @@
       "stake": 0.5,
       "stake_note": "Match de milieu de phase de ligue, utile pour viser le top 8.",
       "sale": {
-        "status": "announce",
+        "status": "resale",
         "members_open": null,
         "public_open": null,
-        "note": "Date d'ouverture pas encore annoncée par le club (vérifié le 05/11).",
-        "availability": "unknown",
-        "checked": "2026-11-05T08:00:00+01:00",
-        "source": null
+        "note": "Revente officielle (Ticketplace) ouverte, pas de vente grand public au catalogue (Sortiraparis, 04/11).",
+        "availability": "resale",
+        "checked": "2026-11-06T08:00:00+01:00",
+        "source": "https://www.sortiraparis.com/en/what-to-do-in-paris/sport-wellness/articles/302972-psg-vs-as-roma-in-the-champions-league-at-the-parc-des-princes-in-november-2026-what-you-need-to-know"
       },
       "check_date": "2026-10-28T18:00:00+01:00",
       "buy_url": "https://billetterie.psg.fr/"
@@ -38,7 +38,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-11-05T08:00:00+01:00",
+        "checked": "2026-11-06T08:00:00+01:00",
         "source": null
       },
       "check_date": "2026-12-28T18:00:00+01:00",
@@ -58,7 +58,7 @@
         "public_open": null,
         "note": "Dépend du classement et du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-05T08:00:00+01:00",
+        "checked": "2026-11-06T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -77,7 +77,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-05T08:00:00+01:00",
+        "checked": "2026-11-06T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -96,7 +96,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-05T08:00:00+01:00",
+        "checked": "2026-11-06T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -115,14 +115,14 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-05T08:00:00+01:00",
+        "checked": "2026-11-06T08:00:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
     }
   ],
   "forecast": {
-    "updated": "2026-11-05T06:52+00:00",
+    "updated": "2026-11-06T06:52+00:00",
     "standings_date": "2026-11-05",
     "sims": 20000,
     "psg": {
