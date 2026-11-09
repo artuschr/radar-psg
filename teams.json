@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-08",
+  "standings_date": "2026-11-09",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -344,7 +344,7 @@
     {
       "team": "PSG",
       "player": "Ousmane Dembélé",
-      "injury": "Lésion à la cuisse gauche, en soins plusieurs semaines (communiqué PSG du 21/10)",
+      "injury": "Lésion à la cuisse gauche, en soins plusieurs semaines (communiqué PSG du 21/10), reprise individuelle de l'entraînement (point médical PSG du 06/11)",
       "since": "2026-10-20",
       "until": "2026-11-17",
       "estimated": true,
@@ -362,7 +362,7 @@
     {
       "team": "PSG",
       "player": "Marquinhos",
-      "injury": "Lésion à la cuisse droite, en soins plusieurs semaines (communiqué PSG du 21/10), retour visé contre Nice le 21/11 (CulturePSG)",
+      "injury": "Lésion à la cuisse droite, en soins plusieurs semaines (communiqué PSG du 21/10), retour visé contre Nice le 21/11 (CulturePSG), reprise individuelle de l'entraînement (point médical PSG du 06/11)",
       "since": "2026-10-20",
       "until": "2026-11-21",
       "estimated": true,
@@ -371,7 +371,7 @@
     {
       "team": "PSG",
       "player": "Nuno Mendes",
-      "injury": "Lésion à la cuisse gauche, retour visé contre Nice le 21/11 après la trêve (CulturePSG, 22/10)",
+      "injury": "Lésion à la cuisse gauche, retour visé contre Nice le 21/11 après la trêve (CulturePSG, 22/10), reprise individuelle de l'entraînement (point médical PSG du 06/11)",
       "since": "2026-10-20",
       "until": "2026-11-21",
       "estimated": true,
