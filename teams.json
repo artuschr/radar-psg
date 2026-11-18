@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-17",
+  "standings_date": "2026-11-18",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -344,7 +344,7 @@
     {
       "team": "PSG",
       "player": "Ousmane Dembélé",
-      "injury": "Lésion à la cuisse gauche, en soins plusieurs semaines (communiqué PSG du 21/10), reprise individuelle de l'entraînement (point médical PSG du 06/11), retour possible contre Nice le 21/11 (But! Football Club, 09/11)",
+      "injury": "Lésion à la cuisse gauche, en soins plusieurs semaines (communiqué PSG du 21/10), reprise individuelle de l'entraînement (point médical PSG du 06/11), retour possible contre Nice le 21/11 (But! Football Club, 09/11 ; Le Parisien, 17/11)",
       "since": "2026-10-20",
       "until": "2026-11-21",
       "estimated": true,
@@ -407,7 +407,7 @@
     {
       "team": "PSG",
       "player": "Désiré Doué",
-      "injury": "Tension à l'ischio-jambier droit en sélection, forfait pour France-Turquie, durée inconnue, examens au PSG après la trêve (Foot-sur7, 16/11)",
+      "injury": "Tension à l'ischio-jambier droit en sélection, forfait pour France-Turquie, durée inconnue, programme allégé au retour au PSG (Foot-sur7, 17/11)",
       "since": "2026-11-15",
       "until": "2026-11-22",
       "estimated": true,
