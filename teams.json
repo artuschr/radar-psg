@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-20",
+  "standings_date": "2026-11-22",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -343,39 +343,12 @@
   "absences": [
     {
       "team": "PSG",
-      "player": "Ousmane Dembélé",
-      "injury": "Lésion à la cuisse gauche, en soins plusieurs semaines (communiqué PSG du 21/10), reprise individuelle de l'entraînement (point médical PSG du 06/11), retour possible contre Nice le 21/11 (But! Football Club, 09/11 ; Le Parisien, 17/11) ; aucune annonce officielle avant Nice, Luis Enrique attend les séances collectives (ParisUnited/Le Parisien, 18/11)",
-      "since": "2026-10-20",
-      "until": "2026-11-21",
-      "estimated": true,
-      "impact": 35
-    },
-    {
-      "team": "PSG",
       "player": "Khvicha Kvaratskhelia",
       "injury": "Rupture du ligament croisé antérieur du genou droit, opération (communiqué PSG du 21/10)",
       "since": "2026-10-20",
       "until": "2027-06-01",
       "estimated": true,
       "impact": 25
-    },
-    {
-      "team": "PSG",
-      "player": "Marquinhos",
-      "injury": "Lésion à la cuisse droite, en soins plusieurs semaines (communiqué PSG du 21/10), retour visé contre Nice le 21/11 (CulturePSG), reprise individuelle de l'entraînement (point médical PSG du 06/11)",
-      "since": "2026-10-20",
-      "until": "2026-11-21",
-      "estimated": true,
-      "impact": 12
-    },
-    {
-      "team": "PSG",
-      "player": "Nuno Mendes",
-      "injury": "Lésion à la cuisse gauche, retour visé contre Nice le 21/11 après la trêve (CulturePSG, 22/10), reprise individuelle de l'entraînement (point médical PSG du 06/11)",
-      "since": "2026-10-20",
-      "until": "2026-11-21",
-      "estimated": true,
-      "impact": 15
     },
     {
       "team": "FC Barcelone",
@@ -407,11 +380,20 @@
     {
       "team": "PSG",
       "player": "Désiré Doué",
-      "injury": "Tension à l'ischio-jambier droit en sélection, forfait pour France-Turquie, durée inconnue, programme allégé au retour au PSG (Foot-sur7, 17/11)",
-      "since": "2026-11-15",
-      "until": "2026-11-22",
+      "injury": "Touché au ligament croisé antérieur du genou droit à Nice le 21/11 (L'Équipe, 22/11), rupture redoutée, IRM dimanche, communiqué du club attendu",
+      "since": "2026-11-21",
+      "until": "2027-05-15",
       "estimated": true,
-      "impact": 12
+      "impact": 20
+    },
+    {
+      "team": "Bayern Munich",
+      "player": "Harry Kane",
+      "injury": "Déchirure de la syndesmose de la cheville gauche contre Cologne (20/11), absent « plusieurs mois » selon le Bayern, trois à quatre mois selon la presse allemande, retour en mars au mieux (Le Parisien, 21/11)",
+      "since": "2026-11-20",
+      "until": "2027-03-15",
+      "estimated": true,
+      "impact": 35
     }
   ]
 }
