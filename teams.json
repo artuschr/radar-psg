@@ -1,6 +1,6 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-22",
+  "standings_date": "2026-11-23",
   "league_avg_rating": 1800,
   "psg_remaining": [
     {
@@ -351,18 +351,9 @@
       "impact": 25
     },
     {
-      "team": "FC Barcelone",
-      "player": "Dani Olmo",
-      "injury": "Lésion à l'adducteur gauche, environ un mois d'absence (communiqué du Barça du 21/10)",
-      "since": "2026-10-20",
-      "until": "2026-11-20",
-      "estimated": false,
-      "impact": 12
-    },
-    {
       "team": "Arsenal",
       "player": "Bukayo Saka",
-      "injury": "Blessure au quadriceps contre le Bayern (21/10), six à huit semaines selon la presse, nouveau scanner prévu et au moins deux semaines d'absence encore (Arteta, 30/10)",
+      "injury": "Blessure au quadriceps contre le Bayern (21/10), pas d'opération, « environ huit semaines » d'indisponibilité dont quatre déjà passées (Arteta, 20/11)",
       "since": "2026-10-21",
       "until": "2026-12-16",
       "estimated": true,
@@ -380,9 +371,9 @@
     {
       "team": "PSG",
       "player": "Désiré Doué",
-      "injury": "Touché au ligament croisé antérieur du genou droit à Nice le 21/11 (L'Équipe, 22/11), rupture redoutée, IRM dimanche, communiqué du club attendu",
+      "injury": "Rupture du ligament croisé antérieur du genou droit à Nice le 21/11, confirmée par le PSG (22/11), opération d'ici fin novembre ; 8 mois et demi à 9 mois d'absence en moyenne selon RMC, saison probablement terminée",
       "since": "2026-11-21",
-      "until": "2027-05-15",
+      "until": "2027-08-01",
       "estimated": true,
       "impact": 20
     },

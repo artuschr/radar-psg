@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T07:52:00+01:00",
+  "updated": "2026-11-23T08:30:00+01:00",
   "feed_url": "",
   "matches": [
     {
@@ -15,10 +15,10 @@
         "status": "resale",
         "members_open": null,
         "public_open": null,
-        "note": "Revente officielle (Ticketplace) ouverte, pas de vente grand public au catalogue (Sortiraparis, 04/11).",
+        "note": "Revente officielle (Ticketplace) seule ouverte, pas de vente classique au catalogue (Sortiraparis, mis à jour le 22/11).",
         "availability": "resale",
-        "checked": "2026-11-22T07:52:00+01:00",
-        "source": "https://www.sortiraparis.com/en/what-to-do-in-paris/sport-wellness/articles/302972-psg-vs-as-roma-in-the-champions-league-at-the-parc-des-princes-in-november-2026-what-you-need-to-know"
+        "checked": "2026-11-23T08:30:00+01:00",
+        "source": "https://www.sortiraparis.com/loisirs/psg/articles/302972-psg-as-roma-rendez-vous-de-ligue-des-champions-au-parc-des-princes-ce-qu-il-faut-savoir"
       },
       "check_date": "2026-10-28T18:00:00+01:00",
       "buy_url": "https://billetterie.psg.fr/"
@@ -38,7 +38,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-11-22T07:52:00+01:00",
+        "checked": "2026-11-23T08:30:00+01:00",
         "source": null
       },
       "check_date": "2026-12-28T18:00:00+01:00",
@@ -58,7 +58,7 @@
         "public_open": null,
         "note": "Dépend du classement et du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-22T07:52:00+01:00",
+        "checked": "2026-11-23T08:30:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -77,7 +77,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-22T07:52:00+01:00",
+        "checked": "2026-11-23T08:30:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -96,7 +96,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-22T07:52:00+01:00",
+        "checked": "2026-11-23T08:30:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -115,15 +115,15 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-22T07:52:00+01:00",
+        "checked": "2026-11-23T08:30:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
     }
   ],
   "forecast": {
-    "updated": "2026-11-22T06:52+00:00",
-    "standings_date": "2026-11-22",
+    "updated": "2026-11-23T06:52+00:00",
+    "standings_date": "2026-11-23",
     "sims": 20000,
     "psg": {
       "top8": 0.9655,
@@ -624,7 +624,7 @@
       {
         "team": "Arsenal",
         "player": "Bukayo Saka",
-        "injury": "Blessure au quadriceps contre le Bayern (21/10), six à huit semaines selon la presse, nouveau scanner prévu et au moins deux semaines d'absence encore (Arteta, 30/10)",
+        "injury": "Blessure au quadriceps contre le Bayern (21/10), pas d'opération, « environ huit semaines » d'indisponibilité dont quatre déjà passées (Arteta, 20/11)",
         "since": "2026-10-21",
         "until": "2026-12-16",
         "estimated": true,
@@ -642,9 +642,9 @@
       {
         "team": "PSG",
         "player": "Désiré Doué",
-        "injury": "Touché au ligament croisé antérieur du genou droit à Nice le 21/11 (L'Équipe, 22/11), rupture redoutée, IRM dimanche, communiqué du club attendu",
+        "injury": "Rupture du ligament croisé antérieur du genou droit à Nice le 21/11, confirmée par le PSG (22/11), opération d'ici fin novembre ; 8 mois et demi à 9 mois d'absence en moyenne selon RMC, saison probablement terminée",
         "since": "2026-11-21",
-        "until": "2027-05-15",
+        "until": "2027-08-01",
         "estimated": true,
         "impact": 20
       },
