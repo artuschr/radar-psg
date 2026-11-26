@@ -1,13 +1,8 @@
 {
   "_note": "Classement de la phase de ligue (played, pts, gd) mis à jour chaque jour. rating = force estimée sur l'échelle Elo des clubs ; à ajuster si une source fiable donne mieux. big = gros club pour la note d'affiche.",
-  "standings_date": "2026-11-25",
+  "standings_date": "2026-11-26",
   "league_avg_rating": 1800,
   "psg_remaining": [
-    {
-      "opp": "AS Roma",
-      "home": true,
-      "date": "2026-11-25"
-    },
     {
       "opp": "Aston Villa",
       "home": false,
@@ -27,8 +22,8 @@
   "teams": [
     {
       "name": "PSG",
-      "played": 4,
-      "pts": 12,
+      "played": 5,
+      "pts": 13,
       "gd": 15,
       "rating": 2000,
       "big": true
@@ -59,9 +54,9 @@
     },
     {
       "name": "FC Barcelone",
-      "played": 4,
-      "pts": 9,
-      "gd": 8,
+      "played": 5,
+      "pts": 12,
+      "gd": 11,
       "rating": 1960,
       "big": true
     },
@@ -83,25 +78,25 @@
     },
     {
       "name": "Liverpool",
-      "played": 4,
-      "pts": 9,
-      "gd": 4,
+      "played": 5,
+      "pts": 12,
+      "gd": 7,
       "rating": 1960,
       "big": true
     },
     {
       "name": "Sporting",
-      "played": 4,
-      "pts": 9,
+      "played": 5,
+      "pts": 10,
       "gd": 4,
       "rating": 1820,
       "big": false
     },
     {
       "name": "Club Bruges",
-      "played": 4,
+      "played": 5,
       "pts": 9,
-      "gd": 4,
+      "gd": 1,
       "rating": 1760,
       "big": false
     },
@@ -123,25 +118,25 @@
     },
     {
       "name": "Bayern Munich",
-      "played": 4,
+      "played": 5,
       "pts": 8,
-      "gd": 7,
+      "gd": 6,
       "rating": 1960,
       "big": true
     },
     {
       "name": "Stuttgart",
-      "played": 4,
+      "played": 5,
       "pts": 7,
-      "gd": 3,
+      "gd": 1,
       "rating": 1810,
       "big": false
     },
     {
       "name": "Inter Milan",
-      "played": 4,
-      "pts": 6,
-      "gd": 2,
+      "played": 5,
+      "pts": 9,
+      "gd": 4,
       "rating": 1920,
       "big": true
     },
@@ -155,8 +150,8 @@
     },
     {
       "name": "Manchester United",
-      "played": 4,
-      "pts": 6,
+      "played": 5,
+      "pts": 7,
       "gd": 0,
       "rating": 1820,
       "big": true
@@ -171,25 +166,25 @@
     },
     {
       "name": "Fenerbahçe",
-      "played": 4,
-      "pts": 5,
-      "gd": -5,
+      "played": 5,
+      "pts": 8,
+      "gd": -4,
       "rating": 1760,
       "big": false
     },
     {
       "name": "AS Roma",
-      "played": 4,
-      "pts": 4,
+      "played": 5,
+      "pts": 5,
       "gd": 2,
       "rating": 1790,
       "big": false
     },
     {
       "name": "Shakhtar Donetsk",
-      "played": 4,
+      "played": 5,
       "pts": 4,
-      "gd": 0,
+      "gd": -1,
       "rating": 1700,
       "big": false
     },
@@ -203,17 +198,17 @@
     },
     {
       "name": "Atlético de Madrid",
-      "played": 4,
-      "pts": 4,
-      "gd": -1,
+      "played": 5,
+      "pts": 7,
+      "gd": 1,
       "rating": 1880,
       "big": true
     },
     {
       "name": "Viking",
-      "played": 4,
+      "played": 5,
       "pts": 4,
-      "gd": -1,
+      "gd": -3,
       "rating": 1580,
       "big": false
     },
@@ -243,9 +238,9 @@
     },
     {
       "name": "Sabah",
-      "played": 4,
+      "played": 5,
       "pts": 3,
-      "gd": -6,
+      "gd": -9,
       "rating": 1550,
       "big": false
     },
@@ -267,9 +262,9 @@
     },
     {
       "name": "Villarreal",
-      "played": 4,
-      "pts": 3,
-      "gd": -6,
+      "played": 5,
+      "pts": 6,
+      "gd": -5,
       "rating": 1800,
       "big": false
     },
@@ -291,17 +286,17 @@
     },
     {
       "name": "Slavia Prague",
-      "played": 4,
+      "played": 5,
       "pts": 1,
-      "gd": -4,
+      "gd": -5,
       "rating": 1700,
       "big": false
     },
     {
       "name": "Lille",
-      "played": 4,
-      "pts": 1,
-      "gd": -6,
+      "played": 5,
+      "pts": 4,
+      "gd": -5,
       "rating": 1790,
       "big": false
     },
