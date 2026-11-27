@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T07:51:00+01:00",
+  "updated": "2026-11-27T07:51:00+01:00",
   "feed_url": "",
   "matches": [
     {
@@ -17,7 +17,7 @@
         "public_open": null,
         "note": "Date d'ouverture pas encore annoncée par le club.",
         "availability": "unknown",
-        "checked": "2026-11-26T07:51:00+01:00",
+        "checked": "2026-11-27T07:51:00+01:00",
         "source": null
       },
       "check_date": "2026-12-28T18:00:00+01:00",
@@ -37,7 +37,7 @@
         "public_open": null,
         "note": "Dépend du classement et du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-26T07:51:00+01:00",
+        "checked": "2026-11-27T07:51:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -56,7 +56,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-26T07:51:00+01:00",
+        "checked": "2026-11-27T07:51:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -75,7 +75,7 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-26T07:51:00+01:00",
+        "checked": "2026-11-27T07:51:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
@@ -94,15 +94,15 @@
         "public_open": null,
         "note": "Dépend du tirage.",
         "availability": "unknown",
-        "checked": "2026-11-26T07:51:00+01:00",
+        "checked": "2026-11-27T07:51:00+01:00",
         "source": null
       },
       "buy_url": "https://billetterie.psg.fr/"
     }
   ],
   "forecast": {
-    "updated": "2026-11-26T06:51+00:00",
-    "standings_date": "2026-11-26",
+    "updated": "2026-11-27T06:51+00:00",
+    "standings_date": "2026-11-27",
     "sims": 20000,
     "psg": {
       "top8": 0.9459,
