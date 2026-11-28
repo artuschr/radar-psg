@@ -371,6 +371,33 @@
       "until": "2027-03-15",
       "estimated": true,
       "impact": 35
+    },
+    {
+      "team": "PSG",
+      "player": "Nuno Mendes",
+      "injury": "Lésion musculaire à la cuisse gauche, forfait contre Lorient (point médical PSG du 27/11), durée non communiquée",
+      "since": "2026-11-27",
+      "until": "2026-12-12",
+      "estimated": true,
+      "impact": 15
+    },
+    {
+      "team": "Bayern Munich",
+      "player": "Jamal Musiala",
+      "injury": "Nouvelle déchirure à la cuisse, absent 4 à 6 semaines selon la presse après confirmation du Bayern (27/11)",
+      "since": "2026-11-27",
+      "until": "2027-01-08",
+      "estimated": true,
+      "impact": 25
+    },
+    {
+      "team": "Inter Milan",
+      "player": "Alessandro Bastoni",
+      "injury": "Élongation du quadriceps gauche confirmée par l'Inter (27/11), au moins trois semaines selon la presse italienne",
+      "since": "2026-11-27",
+      "until": "2026-12-18",
+      "estimated": true,
+      "impact": 12
     }
   ]
 }
